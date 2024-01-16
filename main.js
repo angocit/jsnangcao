@@ -29,18 +29,43 @@
 // console.log(map4);
 // console.log(map4.has('Key5'));
 
-const tracnghiem = new Map();
-tracnghiem.set('cauhoi','Đâu là tên một châu lục?');
-tracnghiem.set(1,'Việt Nam');
-tracnghiem.set(2,'Châu Á');
-tracnghiem.set(3,'Trung Quốc');
-tracnghiem.set('dapan','Châu Á');
-tracnghiem.set(true,'Bạn đã trả lời đúng');
-tracnghiem.set(false,'Câu trả lời chưa chính xác');
-console.log(tracnghiem.get('cauhoi'));
-console.log(`1. ${tracnghiem.get(1)}`);
-console.log(`2. ${tracnghiem.get(2)}`);
-console.log(`3. ${tracnghiem.get(3)}`);
-const dapan = 2;
-// console.log(tracnghiem.get('dapan')==tracnghiem.get(dapan));
-console.log(tracnghiem.get(tracnghiem.get('dapan')==tracnghiem.get(dapan)));
+// const tracnghiem = new Map();
+// tracnghiem.set('cauhoi','Đâu là tên một châu lục?');
+// tracnghiem.set(1,'Việt Nam');
+// tracnghiem.set(2,'Châu Á');
+// tracnghiem.set(3,'Trung Quốc');
+// tracnghiem.set('dapan','Châu Á');
+// tracnghiem.set(true,'Bạn đã trả lời đúng');
+// tracnghiem.set(false,'Câu trả lời chưa chính xác');
+// console.log(tracnghiem.get('cauhoi'));
+// console.log(`1. ${tracnghiem.get(1)}`);
+// console.log(`2. ${tracnghiem.get(2)}`);
+// console.log(`3. ${tracnghiem.get(3)}`);
+// const dapan = 2;
+// // console.log(tracnghiem.get('dapan')==tracnghiem.get(dapan));
+// console.log(tracnghiem.get(tracnghiem.get('dapan')==tracnghiem.get(dapan)));
+
+// Default parameters
+// const tinhtong = (a,b=2)=>{
+//     return a+b;
+// }
+// // console.log(tinhtong(5));
+// (Callback)
+// const printResults = (so1,so2,fn)=>{
+//     console.log(`Tổng 2 số là: ${fn(so1,so2)}`);
+// }
+// printResults(5,7,tinhtong);
+
+// Return Hàm trong Hàm 
+// const Demo1 = ()=>{
+//     console.log(`Đây là hàm số 1`);
+//     return (a)=>{
+//         console.log(`Đây là hàm số ${a}`);
+//     }
+// }
+// Demo1()("Hàm con");
+
+// (Immediately Invoked Function Expressions (IIFE))
+(DemoPrintResult = ()=>{
+    console.log(`Gọi hàm ngay lập tức `);
+})();
