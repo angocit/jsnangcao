@@ -66,6 +66,54 @@
 // Demo1()("Hàm con");
 
 // (Immediately Invoked Function Expressions (IIFE))
-(DemoPrintResult = ()=>{
-    console.log(`Gọi hàm ngay lập tức `);
-})();
+// (DemoPrintResult = ()=>{
+//     console.log(`Gọi hàm ngay lập tức `);
+// })();
+
+// const manga = [8,5,6,2,1,7,96];
+// 1.
+// for (let item of manga) {
+//     console.log(item);
+// }
+// 2.
+// for (let i=0; i<manga.length;i++) {
+//     console.log(manga[i],i);
+// }
+// map
+// manga.map((value, index)=>{
+//     console.log(value,index);
+// });
+
+// // forEach;
+// manga.forEach((value, index)=>{
+//     console.log(value,index);
+// });
+// Filter;
+const objarr = [
+    {a:6,b:9},
+    {a:8,b:10},
+    {a:3,b:6},
+    {a:9,b:7},
+    {a:6,b:8}
+]
+// const mangb = manga.filter((value)=>
+// {
+//     return value>6;
+// });
+// const mangb = objarr.filter(({a,b})=>{
+//     return a==6;
+//     // return (value.a==6)&&(value.b==9);
+// });
+// console.log(objarr);
+// console.log(mangb);
+// Reduce
+const manga = [6,6,43];
+const tong = manga.reduce((results,value)=>{
+    if (value%2==1){
+        results+=value;
+    }
+    return results;
+    //    return results+=value;
+},0);
+
+console.log(tong);
