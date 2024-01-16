@@ -1,119 +1,127 @@
 // Map
-// Các phần tử trong map sẽ 2 giá trị
-// Key - value
-// - Thêm phần tử vào Map
+// Các phần tử trong map sẽ có 2 giá trị
+// 1- Key
+// 2- Value
+// 
+// Khởi tạo map và set giá trị
+
 // const map1 = new Map();
-// map1.set('key1', "Số 1");
-// map1.set("Key2", "Số 2");
-// map1.set("Key3", "Số 3");
-// // console.log(map1);
-// // Lấy giá trị từ map
-// // Tên Map.get('Key)
-// console.log(map1.get('key1'));
+// map1.set('key1', 'value1');
+// map1.set('key2', 'value 2');
+// map1.set('key3', 'value 3');
 
-// Khởi tạo Map từ Array.
+// Lấy giá trị từ Map
+// console.log(map1);
+// console.log(map1.get(0));
 
-// const arraya = [["Key1","Value 1"],["Key2","Value 2"],["Key3","Value 3"]];
-// const map2 = new Map(arraya);
-// const set1 = new Set(arraya);
-// // console.log(set1);
-// // console.log(map2.get('Key2'));
-// // Khởi tạo Map từ Map
-// // const map3 = new Map(map2);
-// // console.log(map3);
+
+// Tạo map từ mảng
+// const mang = [
+//     ['key1', 'Value1'],
+//     ['key2', 'Value2'],
+//     ['key3', 'Value3'],
+//     ['key4', 'Value4']
+// ];
+// const set1 = new Set(mang);
+// console.log(set1);
+// const map2 = new Map(mang);
+// console.log(map2);
+// Tạo Map từ Map
+// const map3 = new Map(map2);
+// console.log(map3);
+// Tạo map từ Set
 // const map4 = new Map(set1);
-// // xóa phần tử trong Map;
-// // map4.delete('Key1');
-// // Xóa toàn bộ
+// console.log(map4);
+// // Kiểm tra key tồn tại trong map
+// console.log(map4.has('key8'));
+// //Xóa key trong map
+// map4.delete('key2');
+// console.log(map4);
+// //Xóa toàn bộ key trong map
 // map4.clear();
 // console.log(map4);
-// console.log(map4.has('Key5'));
 
 // const tracnghiem = new Map();
-// tracnghiem.set('cauhoi','Đâu là tên một châu lục?');
+// tracnghiem.set('cauhoi','Từ nào sau đây là tên một châu lục?');
 // tracnghiem.set(1,'Việt Nam');
-// tracnghiem.set(2,'Châu Á');
-// tracnghiem.set(3,'Trung Quốc');
+// tracnghiem.set(2,'Trung Quốc');
+// tracnghiem.set(3,'Châu Á');
 // tracnghiem.set('dapan','Châu Á');
-// tracnghiem.set(true,'Bạn đã trả lời đúng');
+// tracnghiem.set(true,'Bạn đã trả lời chính xác');
 // tracnghiem.set(false,'Câu trả lời chưa chính xác');
+
 // console.log(tracnghiem.get('cauhoi'));
 // console.log(`1. ${tracnghiem.get(1)}`);
 // console.log(`2. ${tracnghiem.get(2)}`);
 // console.log(`3. ${tracnghiem.get(3)}`);
-// const dapan = 2;
-// // console.log(tracnghiem.get('dapan')==tracnghiem.get(dapan));
+// const dapan = Number(prompt('Nhập đáp án'));
 // console.log(tracnghiem.get(tracnghiem.get('dapan')==tracnghiem.get(dapan)));
 
-// Default parameters
-// const tinhtong = (a,b=2)=>{
-//     return a+b;
+// Default Parameter
+// const tinhtong = (a,b=5)=>{
+//    return a+b;
 // }
-// // console.log(tinhtong(5));
-// (Callback)
-// const printResults = (so1,so2,fn)=>{
-//     console.log(`Tổng 2 số là: ${fn(so1,so2)}`);
+// Gọi hàm trong hàm (Callback)
+// const PrintResult = (a,b,fn)=>{
+//     console.log(`Tổng 2 số là: ${fn(a,b)}`);
 // }
-// printResults(5,7,tinhtong);
+// PrintResult(10,5,tinhtong);
 
-// Return Hàm trong Hàm 
-// const Demo1 = ()=>{
-//     console.log(`Đây là hàm số 1`);
+// Hàm return hàm
+// const Demo = ()=>{
+//     console.log(`Log hàm số 1`);
 //     return (a)=>{
-//         console.log(`Đây là hàm số ${a}`);
+//         console.log(`Log hàm số 2 ${a}`);
+//         return (b)=>{
+//             console.log(`Log hàm số 3 ${b}`);
+//         }
 //     }
 // }
-// Demo1()("Hàm con");
-
+// Demo()(7)(9);
 // (Immediately Invoked Function Expressions (IIFE))
-// (DemoPrintResult = ()=>{
-//     console.log(`Gọi hàm ngay lập tức `);
+// (demo = ()=>{
+//     console.log(`Đây là demo`);
 // })();
+// demo();
 
-// const manga = [8,5,6,2,1,7,96];
-// 1.
-// for (let item of manga) {
+// const mang = [7,6,4,4,34,4];
+// for (let item of mang) {
 //     console.log(item);
 // }
-// 2.
-// for (let i=0; i<manga.length;i++) {
-//     console.log(manga[i],i);
+// for (let i=0; i<mang.length;i++) {
+//     console.log(mang[i]);
 // }
-// map
-// manga.map((value, index)=>{
+// Map
+// mang.map((value,index)=>{
 //     console.log(value,index);
 // });
-
-// // forEach;
-// manga.forEach((value, index)=>{
+// forEach
+// mang.forEach((value,index)=>{
 //     console.log(value,index);
-// });
-// Filter;
-const objarr = [
-    {a:6,b:9},
-    {a:8,b:10},
-    {a:3,b:6},
-    {a:9,b:7},
-    {a:6,b:8}
-]
-// const mangb = manga.filter((value)=>
-// {
+//     });
+// Filter 
+// const mangb = mang.filter(value=>{
 //     return value>6;
 // });
-// const mangb = objarr.filter(({a,b})=>{
-//     return a==6;
-//     // return (value.a==6)&&(value.b==9);
-// });
-// console.log(objarr);
+// console.log(mang);
 // console.log(mangb);
-// Reduce
-const manga = [6,6,43];
-const tong = manga.reduce((results,value)=>{
-    if (value%2==1){
-        results+=value;
-    }
-    return results;
-    //    return results+=value;
-},0);
+// const objarr = [
+//     {a:7,b:9},
+//     {a:3,b:10},
+//     {a:4,b:34},
+//     {a:5,b:23},
+//     {a:7,b:11}
+// ];
+// const newobj = objarr.filter(({a,b})=>{
+//     return (a<7)&&(b>10);
+// });
+// console.log(newobj);
 
+const mang = [6,7,4,2];
+const tong = mang.reduce((result,value)=>{
+    if (value%2==0){
+        result+=value;
+    }
+    return result;
+});
 console.log(tong);
