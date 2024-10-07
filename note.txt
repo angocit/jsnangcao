@@ -1,0 +1,2 @@
+- CRUD
+- Create: tên, ảnh, giá tiền, mô tả 

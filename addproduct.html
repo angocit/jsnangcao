@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Thêm mới sản phẩm</h1>
+    <form id="addproduct">
+      <input type="text" name="name" placeholder="Tên SP" />
+      <input type="text" name="image" placeholder="Ảnh" />
+      <input type="number" name="price" placeholder="Giá tiền" />
+      <input type="text" name="description" placeholder="Mô tả" />
+      <button type="submit">Thêm mới</button>
+    </form>
+    <script>
+      const name = document.querySelector("[name=name]");
+      const image = document.querySelector("[name=image]");
+      const price = document.querySelector("[name=price]");
+      const description = document.querySelector("[name=description]");
+      const productfrm = document.getElementById("addproduct");
+
+      // bắt sự kiện của form
+      productfrm.addEventListener("submit", async (e) => {
+        e.preventDefault(); // ngăn trình duyệt chuyển hướng
+        const data = {
+          name: name.value,
+          image: image.value,
+          price: price.value,
+          description: description.value,
+        };
+        console.log(data);
+        if (validate(name.value, image.value, price.value)) {
+          try {
+            await fetch(`http://localhost:3000/products`, {
+              method: "POST",
+              body: JSON.stringify(data),
+              headers: { "Content-Type": "application/json" },
+            });
+            alert("Thêm mới thành công");
+          } catch (error) {
+            alert("Lỗi");
+          }
+        } else alert("Tên và ảnh không để trống và giá >0");
+      });
+       const validate = (name, image, price) => {
+        // Sử dụng biểu thức AND của short circuiting
+        return (
+          name.trim().length > 0 &&
+          image.trim().length > 0 &&
+          !isNaN(price) &&
+          price > 0
+        );
+      };
+    </script>
+  </body>
+</html>
