@@ -12,7 +12,7 @@
       <input type="text" name="image" placeholder="Ảnh" />
       <input type="number" name="price" placeholder="Giá tiền" />
       <input type="text" name="description" placeholder="Mô tả" />
-      <button type="submit">Thêm mới</button>
+      <button type="submit">Cập nhật</button>
     </form>
     <script>
       const name = document.querySelector("[name=name]");
@@ -20,7 +20,24 @@
       const price = document.querySelector("[name=price]");
       const description = document.querySelector("[name=description]");
       const productfrm = document.getElementById("addproduct");
-
+    // Lấy dữ liệu từ API để đổ vào form
+    // 1. lấy param từ URL 
+    const params = new URLSearchParams(location.search)
+    console.log(params.get('id'));
+    const getProductById = async (id)=>{
+        try {
+            const response = await fetch(`http://localhost:3000/products/${id}`)
+            const product = await response.json()
+            console.log(product);    
+            name.value = product.name        
+            image.value = product.image        
+            price.value = product.price        
+            description.value = product.description        
+        } catch (error) {
+            
+        }
+    }
+    getProductById(params.get('id'))
       // bắt sự kiện của form
       productfrm.addEventListener("submit", async (e) => {
         e.preventDefault(); // ngăn trình duyệt chuyển hướng
@@ -33,13 +50,13 @@
         console.log(data);
         if (validate(name.value, image.value, price.value)) {
           try {
-            await fetch(`http://localhost:3000/products`, {
-              method: "POST",
+            await fetch(`http://localhost:3000/products/${params.get('id')}`, {
+              method: "PUT",
               body: JSON.stringify(data),
               headers: { "Content-Type": "application/json" },
             });
             window.location = 'product-list.html'
-            alert("Thêm mới thành công");
+            alert("Cập nhật thành công");
           } catch (error) {
             alert("Lỗi");
           }

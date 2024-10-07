@@ -1,29 +1,32 @@
 {
   "products": [
     {
-      "name": "",
-      "image": "",
-      "price": "",
-      "description": "",
-      "id": 1
-    },
-    {
-      "name": "Giày nữ ABC",
+      "name": "Giày nữ ABC update2",
       "image": "https://cdn11.dienmaycholon.vn/filewebdmclnew/DMCL21/Picture//Apro/Apro_product_25081/dong-ho-treo-tu_main_946_1020.png.webp",
       "price": "3434",
       "description": "2342423sdfsd",
       "id": 2
     },
     {
+      "name": "asdfasf sà fasf ",
+      "image": "https://product.hstatic.net/200000289371/product/dong-ho-thong-minh-tre-em-kids-life-xanh_e5df97f5e1c54474a2c2fe0146775174_master.jpg",
+      "price": "100000",
+      "description": "sdfsdfsd",
       "id": 3
-    },
-    {
-      "name": "sdfsdafasd",
-      "image": "sdfsd",
-      "price": "4343",
-      "description": "24sdfadf",
-      "id": 4
     }
   ],
-  "users": []
+  "users": [
+    {
+      "email": "angocit@gmail.com",
+      "password": "$2a$10$6ovXAX.rTJLMJQb9Osdw1OeO0KoDcm1JEUPwuD1ye9Wbc3Y3a0GJ6",
+      "name": "Ngọc",
+      "id": 1
+    },
+    {
+      "email": "ngocnv34@fe.edu.vn",
+      "password": "$2a$10$n2jGouaYl7iqZZsM5XxQzOSD9XoV7SLTshzCAaEgVB1ORSYn7AS66",
+      "name": "sfsdfs",
+      "id": 2
+    }
+  ]
 }

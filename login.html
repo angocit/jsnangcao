@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Đăng nhập tài khoản</h1>
+    <form id="userform">
+      <input type="text" placeholder="Email" name="email" />
+      <input type="password" placeholder="Mật khẩu" name="password" />
+      <button>Đăng ký</button>
+    </form>
+    <script>
+      const email = document.querySelector("[name=email]");
+      const password = document.querySelector("[name=password]");
+      const userfrm = document.getElementById("userform");
+      userfrm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const data = {
+          email: email.value,
+          password: password.value,
+        };
+        if (validate(email.value, password.value)) {
+          try {
+            const response = await fetch(`http://localhost:3000/login`, {
+              method: "POST",
+              body: JSON.stringify(data),
+              headers: { "Content-Type": "application/json" },
+            });
+            if (response.ok) alert("Đăng nhập thành công");
+            else throw new Error("Sai tên đăng nhập hoặc mật khẩu");
+          } catch (error) {
+            alert(error);
+            // alert(error.message)
+          }
+        } else alert("Email đúng định dạng và pass > 5 kí tự");
+      });
+      const validate = (email, pass) => {
+        // Short-circuiting biểu thức AND
+        return email.indexOf("@") > -1 && pass.length > 5;
+      };
+    </script>
+  </body>
+</html>
