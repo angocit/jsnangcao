@@ -1,0 +1,47 @@
+{
+  "books": [
+    {
+      "name": "Toán 12 update",
+      "publish": "Giáo Dục",
+      "year": "2024",
+      "price": "100000",
+      "id": 1
+    },
+    {
+      "name": "sdfafdsgsdf",
+      "publish": "dsfgdsgdfs",
+      "year": "",
+      "price": "",
+      "id": 2
+    },
+    {
+      "name": "sdfsaf",
+      "publish": "sdfsdaf",
+      "year": "2024",
+      "price": "10000",
+      "id": 3
+    },
+    {
+      "name": "dfsfsdafsa",
+      "publish": "",
+      "year": "",
+      "price": "",
+      "id": 4
+    },
+    {
+      "name": "dsafasdf",
+      "publish": "sdfsdf",
+      "year": "2024",
+      "price": "1",
+      "id": 5
+    }
+  ],
+  "users": [
+    {
+      "email": "angocit@gmail.com",
+      "password": "$2a$10$V3d/ku2Biyg7K505wJMZNO3atHbZV.vbjg..j.B3CeaxvS/SGxYoS",
+      "name": "Ngọc",
+      "id": 1
+    }
+  ]
+}

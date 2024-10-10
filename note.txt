@@ -1,0 +1,5 @@
+NaN <=> Not a Number
+isNaN(value)
+nghĩa là:
+nếu value không phải là số => true
+nếu value là số =>false
