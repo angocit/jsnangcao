@@ -1,121 +1,160 @@
-// Spread & Rest  
-// ... Three dot 
-// Spread: DÙng để copy hoặc mở rộng phần tử của mảng hoặc thuộc tính của đối tượng
-// - Mảng 
-// const a = [5,8,9,2]
-// const b = [...a]
-// // đặc điểm: không làm thay đổi mảng gốc 
-// // b.push(8)
-// // console.log('mang b',b);
-// // console.log('mang a',a);
-// // Mở rộng 
-// const c = [...a,48,5,6,20,1,7]
-// console.log(c);
-// Với dối tượng (object)
-// const person = {
-//     name:"Ngoc",
-//     age:20
+// Set : Đối tượng lưu trữ giá trị trong js, mà những giá trị này nó là duy nhất(không trùng lặp)
+// // Cú pháp:
+// const set = new Set();
+// // Có thể khởi tạo set từ array 
+// const set2 = new Set([4,8,9,10,33])
+// console.log(set2);
+
+// // Các phương thức và thuộc tính của Set.
+// // - Thêm giá trị vào set :
+// set.add(8)
+// set.add(9)
+// set.add(6)
+// set.add(7)
+// console.log(set);
+// //- Xóa giá trị trong set
+// set.delete(9)
+// console.log(set);
+// // - Xóa toàn bộ: 
+// // set.clear()
+// // console.log(set);
+// // Kiểm tra một giá trị nào đó có tồn tại trong Set hay không. => trả về true or false
+// console.log(set.has(8))
+// // Kiểm tra số lượng phần tử trong set.
+// console.log(set.size)
+// // Lưu ý: Set không truy cập trực tiếp được đến giá trị nhuwg có thể truy cập bằng 
+// // cách duyệt cả set bằng for 
+// // for (item of set){
+// //     console.log(item+40);    
+// // }
+// // Ngoài ra thì có thể sử dụng spread để sao chép các phần tử trong set ra mảng 
+// const a = [...set]
+// console.log(a[2]);
+// // Ứng dụng: Lọc phần tử trùng trong mảng 
+// // VD:
+// const banthang = ["Ngoc","An","Ngoc","Ngoc","Minh"]
+// // Hiển thị danh sách những cầu thủ ghi bàn:
+// const cauthu = new Set(banthang)
+// console.log(`Danh sách cầu thủ ghi bàn là:`);
+// for (item of cauthu){
+//     console.log(item);    
 // }
-// // const person2 = {...person}
-// // console.log(person2);
-// // Mở rộng 
-// // const person3 = {...person,address:"Thái Nguyên"}
-// // console.log(person3);
-// // thay đổi giá trị của đối tượng
-// const person4 = {...person,age:person.age+1}
-// console.log(person4);
-// Rest: Gom các phần tử thành mảng=> Rest đóng vai trò là tham  số của hàm
-// const tinhtongnha = (nha1,nha2,nha3,nha4)=>{
-//     return nha1+nha2+nha3+nha4
+// console.log(`Tổng: ${cauthu.size}`);
+// // Map:
+// // Cú pháp:
+// const map = new Map();
+// // Các phương thức và thuộc tính của map 
+// // Thêm 1 cặp giá trị:
+// map.set("name","Ngọc")
+// map.set("age",20)
+// map.set("address","Thái Nguyên")
+// map.set("maried",true)
+// console.log(map);
+
+// // Xóa cặp giá trị.
+// map.delete("maried")
+// console.log(map);
+// // XÓa hết
+// // map.clear()
+// // console.log(map);
+// // Ktra key có tồn tại trong map hay không => trả về true hoặc false
+// // console.log(map.has("age"))
+// // ---------------------------------------
+// // CÓ thể truy cập trực tếp giá trị thông qua key 
+// const name = map.get('name')
+// console.log(name);
+// // Ktra số lượng các cặp trong map 
+// // console.log(map.size)
+
+// Arrow function (hàm mũi tên)
+// function tenham(thamso){
+
 // }
-// const tongdientich = (...hodan)=>{
-//     let tong = 0
-//     for(dientich of hodan){
-//         tong+=dientich
+// const tenham = (thamso)=>{
+//     //todo 
+// }
+// - Trong hàm chỉ có 1 khối lệnh
+// function tinhtong(a,b){
+//     return a+b
+// }
+// const tinhtong = (a,b)=>a+b
+// console.log(tinhtong(5,6));
+// // Nếu hàm chỉ có 1 tham số
+// // function binhphuong(a){
+// //     return a*a
+// // }
+// const binhphuong = a=>a*a;
+// // Hàm không có tham số
+// const display =()=>console.log(`Hello world`);
+// display()
+// Default parameters  (Tham số mặc định)
+// const tinhtong = (a,b)=>a+b
+// console.log(tinhtong(5,8))
+// const display = (huyen,tinh="Chưa xác định")=>{
+//     console.log(`Địa chỉ là là: Huyện ${huyen} - Tỉnh ${tinh} `);
+// }
+// display("Sông Công")
+// const dientich = (dai,rong)=>dai*rong
+// // Hàm Callback
+// const display = (cao,callbackFn)=>{
+//     const dai = 10, rong = 9
+//     // Thể tích = diện tích x chiều cao 
+//     console.log(`Thể tích khối lập phương là: ${cao*callbackFn(dai,rong)} `); 
+// }
+// display(10,dientich)
+// const thetich = (dai,rong)=>{
+//     const dientich = dai*rong
+//     return (cao)=>{
+//         console.log(`Thể tích là: ${cao*dientich}`);        
 //     }
-//     console.log(tong);    
 // }
-// tongdientich(10,50,40,15,70)
-// Short circuiting
-// Falsy Value 
-// false
-// 0
-// ""
-// null
-// undefined
-// NaN : Not a number 
-// AND (&&) và OR (||)
-// OR: Duyệt từ trái qua phải, nếu gặp falsy value thì bỏ qua duyệt giá trị
-// tiếp theo cho đến khi gặp giá trị KHÔNG PHẢI là falsy value thì dừng và 
-// nhận giá trị đó. Trong trường hợp tất cả đều là falsy value thì lấy giá trị 
-// cuối cùng  
-// const a = false||0||""||null||undefined
-// console.log(a);
-// Ứng dụng: Đặt giá trị mặc định cho biến
+// // thetich(10,9)(10)
+// const abc = thetich(10,9)
+// abc(10)
+// Hàm return hàm: Khi chúng ta gọi hàm và gán nó vào 1 biến thì biến đó
+// trở thành hàm mà nó được return 
+// Gọi hàm ngay lập tức  IIFE
+// const tinhtong = (a,b)=>console.log(a+b)
+// tinhtong(5,7)
+// Viết lại thành 
+// ((a,b)=>console.log(a+b))(5,6)
+// Thao tác với mảng
+const menu = ["Cơm","Canh","Cá","Rau"]
+// Duyệt mảng: for or for of
+// forEach để duyệt mảng 
+console.log(`Danh sách món ăn:`);
 
-// const Check=()=>{
-//     const input = document.querySelector('input').value
-//     // let address = 'Hà Nội'
-//     // if (input!==''){
-//     //     address=input
-//     // }
-//     // console.log(address);    
-//     const address = input||"Hà Nội"
-//     console.log(address);
-    
-// }
-// Biểu thức AND: Tương tự biểu thức OR đều duyệt từ trái qua phải
-// và đều so sánh với falsy value 
-// Tuye nhiên, nếu gặp falsy value thì dừng, nếu gặp giá trị KHÔNG PHẢI
-// falsy value thì bỏ qua duyệt giá trị tiếp theo cho đến khi gặp falsy value 
-// Trong trường hợp tất cả đều KHÔNG PHẢI Falsy value thì lấy giá trị cuối cùng
-// const a = "Ngoc"&&10&&0&&false 
+menu.forEach((item,index)=>{
+    // Todo something
+    console.log(`${index+1}. ${item}`);
+})
+// Giải thích: item: phần tử mảng được duyệt
+//             index: chỉ số của phần tử mảng 
+// Đặc điểm: Không dừng được cho đến khi duyệt hết các phần tử của mảng
+// map trong mảng: Tạo ra 1 mảng mới theo điều kiện nào đó từ mảng gốc và không
+// làm thay đổi mảng gốc
+const a = [5,10,6,9]
+// - Tạo ra mảng b với phần tử là những phần tử mảng a và tăng lên 5 giá trị
+// const b = a.map((item,index)=>{
+//     return item+5  // return giá trị
+// })
+// console.log(b);
 // console.log(a);
-// // Ứng dụng
-// // -> Validate : email đúng định dạng và mật khẩu lớn hơn 6 kí tự 
-// const validate = (email,password)=>{
-//     // if (email.indexOf('@')==-1||email.indexOf('.')==-1||password.length<6){
-//     //     return false
-//     // }
-//     // else return true
-//                     // true           true                     true
-//     return email.indexOf('@')>-1&&email.indexOf('.')>-1&&password.length>5
-// } 
-// validate('angocit','123456')  không pass  
-// validate('angocit@','123456')  không pass  
-// validate('angocit@gmail.com','123456')  pass   
-// Nullish: Tương tự như biểu thức or nhưng thay vì so sách với các giá trị
-// falsy value thì chỉ so sánh với null và undefined
-// Cú pháp:
-// const a = null??undefined??0??"Ngoc"
-// console.log(a);
-const wd19303 = [
-    {
-        name:"SV1",
-        age:20,
-        address: {
-            provice:"Thái Nguyên",
-            district:"Sông Công"
-        }
-    },
-    {
-        name:"SV2",
-        age:20,
-        address: {
-            provice:"Hà Nội",
-            district:"Cầu Giấy"
-        }
-    },
-    {
-        name:"SV3",
-        age:20
-    }
-]
-// In ra danh sách sinh viên trong lớp
-for (sinhvien of wd19303){
-    console.log(`
-    Tên SV: ${sinhvien.name}  - Tuổi: ${sinhvien.age} - Quê quán: ${sinhvien.address?.provice??'Chưa xác định'}   
-        `);
-    
-}
+// viết lại ngăn gọn 
+const b = a.map(item=>item+5)
+console.log(b);
 
+// Filter: Tạo ra 1 mảng mới phù hợp với điều kiện nào đó của mảng gốc
+// mà không làm thay đổi mảng gốc
+// VD: Tạo ra mảng mới chỉ gồm những phần tử chẵn của mảng a 
+const c = a.filter(item=>{
+    return item%2==0  // Return điều kiện
+})
+console.log(c);
+// Reduce 
+// Tạo ra giá trị được tích lũy từ các phép tính của các phần tử trong mảng
+// VD: Tính tổng các phần tử của mảng a 
+const tongall = a.reduce((tong,item)=>{
+    return tong+item
+},0)
+console.log(tongall);
