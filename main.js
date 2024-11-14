@@ -1,39 +1,43 @@
-// Set : Đối tượng lưu trữ giá trị trong js, mà những giá trị này nó là duy nhất(không trùng lặp)
-// // Cú pháp:
-// const set = new Set()  // tạo set rỗng
-// // const set2 = new Set (array) // Tạo set từ mảng
-// const set2 = new Set([6,8,10,9,1,8,8,8,8,8,8])
-// console.log(set);
-// console.log(set2);
-// // Các thuộc tính và phương thức của set.
-// //Thêm giá trị vào set: set.add(value)
-// set2.add(2)
-// set2.add(3)
-// set2.add(8)
-// console.log(set2);
-// // Xóa giá trị trong set: set.delete(value)
-// set2.delete(8)
-// console.log(set2);
-// // xóa toàn bộ giá trị trong set: set.clear()
-// // set2.clear()
+// Set : Đối tượng lưu trữ giá trị trong js,
+// mà những giá trị này nó là duy nhất(không trùng lặp)
+// cú pháp: 
+// const set = new Set()   // tạo ra 1 set rỗng
+// // // const set = new Set(array) : Tạo ra set từ mảng
+// // const set2 = new Set([7,5,6,6,6,6,6,6,6])
+// // console.log(set);
 // // console.log(set2);
-// // Ktra giá trị nào đó có tồn tại trong set hay không: set.has(value) => trả về true or false
-// // console.log(set2.has(3));
-// // Kiểm tra có bao nhiêu giá trị trong set: set.size
-// // console.log(set2.size);
-// // Đặc điểm: Set không truy cập được trực tiếp giá trị, nhưng có thể duyệt Set thông qua for
-// // for (item of set2){
-// //     console.log(item);    
-// // }
-// // Chuyển đổi từ set về mảng bằng cú pháp spread (...)
-// const arr = [...set2]
-// console.log(arr);
-// // Ứng dụng: Lọc trùng trong mảng, lưu trữ những giá trị nào mà nó không trùng nhau
-// // VD: 
-// const banthang = ["Ngọc","An","Ngọc","Ngọc","Minh"]
-// // => Đưa ra ds các cầu thủ ghi bàn 
+// // // Phương thức và thuộc tính 
+// // // - thêm giá trị vào Set: set.add(value)
+// set.add(6)
+// set.add(7)
+// set.add(9)
+// set.add(2)
+// set.add(1)
+// set.add(6)
+// // console.log(set);
+// // // Xóa giá trị trong Set: set.delete(value)
+// // set.delete(7)
+// // console.log(set);
+// // //Xóa hết: set.clear()
+// // // set.clear()
+// // // console.log(set);
+// // // Kiểm tra giá trị có tồn tại trong Set hay không: set.has(value)=>true or false
+// // console.log(set.has(9));
+// // // Đến số lượng giá trị trong Set: set.size
+// // console.log(set.size);
+// // Đặc điểm set: Không truy cập được trực tiếp giá trị trong set, nhưng
+// // có thể duyệt set thông qua for 
+// for (item of set){
+//     console.log(item);    
+// }
+// // Có thể sử dụng spread để chuyển set về mảng
+// const a = [...set]
+// console.log(a);
+
+// // Ứng dụng:
+// const banthang = ["Ngọc","Minh","Ngọc","An","Ngọc"]
 // // const cauthu = []
-// // for (item of banthang){
+// // for(item of banthang){
 // //     if (cauthu.indexOf(item)==-1){
 // //         cauthu.push(item)
 // //     }
@@ -42,133 +46,154 @@
 // const setcauthu = new Set(banthang)
 // const cauthu = [...setcauthu]
 // console.log(cauthu);
-// // Map: Là đối tượng lưu trữ của js, lưu trữ theo cặp key-value
-// // cú pháp:
+
+// // // Map: Đối tượng lưu trữ trong js. Tập hợp các cặp key-value
 // const map = new Map()
-// // Các thuộc tính và phương thức của Map 
-// // - thêm cặp giá trị: map.set(key,value)
+// // Phương thức và thuộc tính:
+// // - Thêm cặp giá trị vào map: map.set(key,value)
 // map.set("name","Ngọc")
 // map.set("age",20)
 // map.set("address","Thái Nguyên")
 // map.set("married",true)
 // console.log(map);
-// //Truy cập giá trị thông qua key: map.get(key)
+// // Truy cập giá trị trong Map: map.get(key)
 // const name = map.get("name")
 // console.log(name);
-// // Xóa giá trị thông qua key: map.delete(key)
-// map.delete("married")
+// // Xóa cặp key-value: map.delete(key)
+// map.delete('married')
 // console.log(map);
-// // Xóa tất cả: map.clear()
+// // - Ktra key có tồn tại trong Map: map.has(key) => true or false 
+// console.log(map.has('age'));
+// // Xóa toàn bộ key-value trong Map: map.clear()
 // // map.clear()
 // // console.log(map);
-// //ktra key có tồn tại trong map hay không: map.has(key) => true or false
-// console.log(map.has("address"));
-// // Ktra số lượng cặp key-value trong set: map.size
+// // Ktra có bao nhiêu cặp key-value: map.size 
 // console.log(map.size);
 // Arrow function 
 // function tenham(thamso){
-//     //todo something
+//     // todo something 
 // }
 // const tenham = (thamso)=>{
+//     // todo something 
+// }
+// - Trong hàm chỉ có 1 khối lệnh 
+// const tinhtong = (a,b)=>a+b 
+// // thay vì 
+// // function tinhtong(a,b){
+// //     return a+b
+// // }
+// // - Trong hàm chỉ có 1 tham số 
+// const tenham =a=>{
 //     // todo something
 // }
-// - Hàm chỉ có 1 khối lệnh (xử lý logic trên 1 dòng mà ko ngăn cách nhau bởi dấu ;)
-// const tinhtong = (a,b)=>a+b
-// // thay vì:
-// function tinhtong(a,b){
-//     return a+b
+// hàm không có tham số và 1 khối lệnh 
+// const display = ()=>console.log(`Hello world!`);
+// display()
+// // Tham số mặc định (Default Parameter): Đặt giá trị mặc định cho tham số, khi gọi hàm
+// // nếu truyền giá trị cho tham số thì tham số sẽ nhận giá trị truyền vào
+// // nếu không truyền thì nó sẽ nhận giá trị mặc định
+// const tinhtong = (a,b=5)=>a+b 
+// const tong = tinhtong(5,8)
+// console.log(tong);
+// Lưu ý:  Tham số mặc định phải nằm sau cùng các tham số thông thường
+// VD: với hàm tính tổng trên không thể đặt như sau: 
+// const tinhtong= (b=5,a)=>a+b
+// Hàm callback: một hàm sẽ đóng vai trò là tham số của một hàm khác 
+// VD:
+// const display = (callbackFn)=>{
+//     const a =6,b=8
+//     console.log(`Tổng a+b là ${callbackFn(6,8)}`);
 // }
-// - hàm chỉ có 1 tham số và chỉ có 1 khối lệnh
-// const binhphuong = a=>a*a
-// // - hàm chỉ có 1 tham số và chỉ có nhiều khối lệnh
-// const display = a=>{
-//     const binhphuong = a*a
-//     console.log(binhphuong);    
+// display(tinhtong)
+// const display = (a,b,cb)=>{
+//     console.log(`Tổng ${a} + ${b} = ${cb(a,b)} `);
 // }
-// Hàm không có tham số
-// const display = ()=>console.log(`Hello world`);
-// Tham số mặc định (default parameter)
-// - cho phép đặt giá trị mặc định cho tham số của hàm. Khi gọi hàm nếu tham số
-// được truyền giá trị thì nó sẽ nhận giá trị truyền vào, nếu không truyền thì
-// tham số sẽ nhận giá trị mặc định
-// const tinhtong =(a,b=0)=>a+b
-// console.log(tinhtong(5));
-// console.log(tinhtong(5,6));
-// Lưu ý: tham số mặc định phải nằm sau cùng các tham số thông thường
-// không thể đặt: 
-// const tinhtong = (a=0,b)=>a+b
+// display(8,9,tinhtong)
 
-// Hàm callback: Một hàm sẽ đóng vai trò là tham số của 1 hàm khác và
-// nó sẽ được gọi khi sử dụng tham số đó bên trong hàm
-// Ví dụ: 
-// const tinhtong =(a,b)=>a+b 
-// // const display = (hamcb)=>{
-// //     const tong = hamcb(8,10)
-// //     console.log(`Tổng 8+10=${tong} `);
-// // }
-// // display(tinhtong)
-// const display = (a,b,callbackFn)=>{
-//     const tong = callbackFn(a,b)  //15
-//     console.log(`Tổng ${a}+${b}=${tong} `);
-// }
-// display(7,8,tinhtong)
-// // Return hàm trong hàm 
-
-// const thetich = (dai,rong)=>{
-//     const dientich = dai*rong 
-//     return (cao)=>{
-//         console.log(`Thể tích là ${dientich*cao} `);   
+// Hàm return hàm: Khi gọi hàm thì kết quả trả về là 1 hàm được return 
+// trong hàm được gọi 
+// a return b 
+// const c = a()
+// c  <=> b
+// const dientich = ()=>{
+//     return ()=>{
+//         return 10
 //     }
 // }
-// const abc = thetich(5,6) // abc là 1 hàm có 1 tham só là chiều cao.
-// abc(10)
-// Gọi hàm ngay lập tức  IIFE (Immediately Invoked Function Expression)
-// VD: 
-// const tinhtong = (a,b)=>console.log(a+b)
+// const display = dientich()
+// // display = 10
+// // // display()
+// const display2 = ()=>{
+//     return 10
+// }
+// // display <=> display2
+// console.log(display2())
+// console.log(display())
+
+// Gọi hàm ngay lập tức (IIFE): 
+// const tinhtong = (a,b)=>console.log(a+b);
 // tinhtong(5,6)
-// Viết lại bằng IIFE
-//  ((a,b)=>console.log(a+b))(5,6)
-// Làm việc với mảng 
-const a = [7,8,10,6,5,9]
-// forEach: dùng để duyệt mảng 
+// dùng iife như sau: 
+// ((a,b)=>console.log(a+b))(5,6)
+// Thao tác với mảng 
+        //    0 1 2 3  4 5
+const a = [7,8,5,6,10,9]
+// - Duyệt mảng
+// - forEach 
 a.forEach((item,index)=>{
-    console.log(`chỉ số: ${index}. Giá trị: ${item}`);    
+    console.log(`Chỉ số: ${index} - Giá trị ptu: ${item} `);    
 })
-// Đặc điểm: Không dừng được cho đến khi duyệt hết mảng. không giống
-//  như for thông thường
+// Đặc điểm: Nó sẽ không dừng được (k dùng đc break;continue) 
+// cho đến khi duyệt hết mảng
+// VD: Đến số lượng phần tử đứng trước 5 trong mảng a 
 // let dem = 0
-// for (item of a){    
-//     if (item==6){
+// for (item of a){
+//     if (item==5){
 //         break;
 //     }
 //     dem++
 // }
 // console.log(dem);
-// map của mảng: tạo ra 1 mảng mới với các phần tử có giá trị
-// dựa trên việc xử lý logic của các phần tử mảng gốc mà không 
-// làm thay đổi mảng gốc
-// VD: tạo ra mảng b với các phần tử có giá trị là các phần tử của mảng a+5 đơn
-// vị
-// const b = a.map((item,index)=>{
-//     return item+5   // Return giá trị
+
+// K dùng được như sau:
+// let dem = 0
+// a.forEach((item,index)=>{
+//     if (item == 5){
+//         break;
+//     }
+//     dem++
 // })
-// viết ngắn gọn:
+
+// console.log(dem);
+// map: Tạo ra mảng mới từ những phần tử của mảng gốc sau khi xử lý logic
+// phần tử mảng gốc mà không làm thay đổi mảng gốc 
+// VD: Tạo ra 1 mảng b với các phần tử có giá trị là phần tử mảng a+5 đơn vị
+// nghĩa là b = [12,13,10,11,15,14]
+// const b = a.map((item,index)=>{
+//     return item+5  // Return giá trị
+// })
+// rút gọn 
 const b = a.map(item=>item+5)
 console.log(b);
-console.log(a);
-// filter: (lọc): tạo ra mảng mới dựa trên điều kiện nào đó của mảng
-// gốc mà không làm thay đổi mảng gốc 
-// VD: tạo ra mảng mới chỉ bao gồm phần lẻ của mảng a 
+// filter (lọc): Tạo ra mảng mới với các phần tử phù hợp với điều kiện nào
+// đó của mảng gốc mà không làm thay đổi mảng gốc 
+// VD: tạo ra mảng mới chỉ bao gồm những phần tử lẻ của mảng a 
 // const c = a.filter((item,index)=>{
-//     return item%2==1  // return điều kiện
+//     return item%2==1 // Return điều kiện
 // })
-// Viết ngăn gọn
+// Rút gọn 
 const c = a.filter(item=>item%2==1)
 console.log(c);
-// reduce: Tạo ra 1 giá trị được tích lũy dựa trên việc xử lý logic phần
-// tử mảng 
-// VD: tính tổng các phần tử mảng a 
-// const tong = a.reduce(hàm callback, giá trị khởi tạo)
+// reduce: Tạo ra 1 giá trị được tích lũy từ những lần duyệt phần tử của mảng
+// gốc 
+// VD: Tính tổng các phần tử của mảng a 
+let tong = 10
+for (item of a){
+    tong = tong+item
+}
+console.log(tong);
+ 
+// const tongphantu = a.reduce(hàm callback,giá trị khởi tạo)
 const tongphantu = a.reduce((tong,item,index)=>{
     return tong+item
 },10)
