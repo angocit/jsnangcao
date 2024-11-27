@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Danh sách sản phẩm</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>STT</th>
+                <th>Ảnh</th>
+                <th>Tên sản phẩm</th>
+                <th>Giá tiền</th>
+                <th>Thao tác</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <script>
+        // truy cập tbody
+        const tbody = document.querySelector('tbody')
+        // Tạo hàm bất đồng bộ
+        const get_all_products = async()=>{
+            try {
+                const response = await fetch(`http://localhost:3000/products`)
+                if (!response.ok) throw new Error('Lỗi')
+                // Chuyển response sang json
+                const products = await response.json()
+                // console.log(products);
+                products.forEach((product,index)=>{
+                    // tạo thẻ tr
+                    const tr = document.createElement('tr')
+                    // đổ dữ liệu sản phẩm vào tr
+                    tr.innerHTML = `
+                        <td>${index+1}</td>
+                        <td><img width="90" src="${product.image}"/></td>
+                        <td>${product.name}</td>
+                        <td>${product.price}</td>
+                        <td>
+                            sửa
+                            <button onclick="DelProduct('${product.id}')">Xóa</button>
+                        </td>                    
+                    `
+                    tbody.append(tr)
+                }) 
+            } catch (error) {
+                console.log(error);                  
+            }
+        }
+        get_all_products()
+        const DelProduct = async(id)=>{
+         if (confirm('Bạn chắc chứ?')){
+            try {
+                const response = await fetch(`http://localhost:3000/products/${id}`,{method:'DELETE'})
+                if (!response.ok) throw new Error('Lỗi xóa')
+                alert('Xóa thành công')
+                } catch (error) {
+                    console.log(error);                
+                }
+            }
+        }
+    </script>
+</body>
+</html>

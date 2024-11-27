@@ -1,0 +1,17 @@
+{
+  "products": [
+    {
+      "name": "Giày nữ ABC update 2",
+      "image": "https://product.hstatic.net/200000289371/product/dong-ho-thong-minh-tre-em-kids-life-xanh_e5df97f5e1c54474a2c2fe0146775174_master.jpg",
+      "price": "20000",
+      "id": 3
+    },
+    {
+      "name": "Đồng hồ thời trang",
+      "image": "https://product.hstatic.net/200000289371/product/dong-ho-thong-minh-tre-em-kids-life-xanh_e5df97f5e1c54474a2c2fe0146775174_master.jpg",
+      "price": "2000",
+      "id": 4
+    }
+  ],
+  "users": []
+}
