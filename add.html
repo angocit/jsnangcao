@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Thêm sản phẩm</h1>
+    <form id="productfrm">
+        <input type="text" name="name" placeholder="Tên sản phẩm"/>
+        <input type="text" name="image" placeholder="Ảnh sản phẩm"/>
+        <input type="text" name="price" placeholder="Giá sản phẩm"/>
+        <button type="submit">Thêm mới</button>
+    </form>
+    <script>
+        const name = document.querySelector('input[name=name]')
+        const image = document.querySelector('input[name=image]')
+        const price = document.querySelector('input[name=price]')
+        const productfrm = document.getElementById('productfrm')
+        productfrm.addEventListener('submit',async (e)=>{
+            e.preventDefault() // NGăn trình duyệt chuyển hướng
+            const data = {
+                name: name.value,
+                image: image.value,
+                price: price.value
+            }
+            if (validate(name.value,image.value,price.value)){
+                try {
+                const response = await fetch(`http://localhost:3000/products`,{
+                        method:'POST',
+                        headers:{'Content-type':'Application/json'},
+                        body: JSON.stringify(data)
+                }) 
+                if (!response.ok) throw new Error('Lỗi')
+                alert('Thêm mới thành công')
+                } catch (error) {
+                    console.log(error);                
+                }
+            }
+            else alert('Tên,ảnh không để trống. Giá >1000')
+        })
+        const validate = (name,image,price)=>{
+            // Biểu thức AND
+            return name.trim().length>0&&image.trim().length>0&&!isNaN(price)&&price>1000
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+Cho sản phẩm có các trường: tên,ảnh,giá
+
+- Thêm sản phẩm có các field trên vào db
+- Hiển thị danh sách sản phẩm
+- THực hiện xóa sản phẩm
+- THực hiện sửa sản phẩm
+- Validate sản phẩm (tên, ảnh không để trống, giá > 1000)
