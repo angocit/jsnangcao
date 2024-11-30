@@ -1,0 +1,28 @@
+{
+  "products": [
+    {
+      "name": "Sách toán 10 update",
+      "publisher": "Giáo dục",
+      "year": "2020",
+      "price": "100000",
+      "id": 1
+    },
+    {
+      "id": 2
+    }
+  ],
+  "users": [
+    {
+      "email": "ngocnv34@fpt.edu.vn",
+      "password": "$2a$10$IdgSaAcRWmH0/GduUmY9MuHeyFJzc8DQQNgY7JnD3hEaP6ITkVFP2",
+      "name": "Ngọc",
+      "id": 1
+    },
+    {
+      "email": "ngocnv343@fpt.edu.vn",
+      "password": "$2a$10$K.7offhGbjUjBSDc2uJX6egHS8waosUm2pdjWgIVfhNSmtrOcNhpe",
+      "name": "Giày nữ ABC",
+      "id": 2
+    }
+  ]
+}
