@@ -21,47 +21,41 @@
         </tbody>
     </table>
     <script>
-        const tbody = document.querySelector('tbody');
-        // IIFE 
-        (async()=>{
+         const tbody = document.querySelector('tbody');
+        (async ()=>{
             try {
                 const response = await fetch(`http://localhost:3000/products`)
                 if (!response.ok) throw new Error('Lỗi')
-                // chuyển response sang json
+                // CHuyển response sang json
                 const products = await response.json()
-                // console.log(products);   
+                // console.log(products);
                 products.forEach((product,index)=>{
                     // tạo thẻ tr
                     const tr = document.createElement('tr')
-                    // Đổ dữ liệu sản phẩm vào tr
-                    tr.innerHTML = `
+                    tr.innerHTML=`
                         <td>${index+1}</td>
-                        <td><img width="90" src="${product.image}"/> </td>
+                        <td><img width="90" src="${product.image}"/></td>
                         <td>${product.name}</td>
                         <td>${product.price}</td>
-                        <td>
-                           <a href="edit.html?id=${product.id}"> Sửa</a> | <button onclick="DelProduct('${product.id}')">Xóa</button>
-                        </td>
+                        <td> <a href="edit.html?id=${product.id}">Sửa</a> | <button onclick="DelProduct('${product.id}')">Xóa</button></td>
                     `
-                    tbody.append(tr)
-                })             
+                   tbody.append(tr) 
+                })                
             } catch (error) {
                 console.log(error);                
             }
-        })()
-        const DelProduct = async (id)=>{
-            if (confirm("Bạn chắc chứ?")){
+         })()
+         const DelProduct = async (id)=>{
+            if(confirm('Bạn chắc chứ?')){
                 try {
-                    const response = await fetch(`http://localhost:3000/products/${id}`,{
-                        method:'DELETE'
-                    })
+                    const response = await fetch(`http://localhost:3000/products/${id}`,{method:'DELETE'})
                     if (!response.ok) throw new Error('Lỗi')
                     alert('Xóa thành công')
                 } catch (error) {
                     console.log(error);                
                 }
             }
-        }
+         }
     </script>
 </body>
 </html>

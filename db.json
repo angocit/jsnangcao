@@ -1,15 +1,9 @@
 {
   "products": [
     {
-      "name": "Giày nữ ABC 2",
-      "image": "https://cdn11.dienmaycholon.vn/filewebdmclnew/DMCL21/Picture//Apro/Apro_product_25081/dong-ho-treo-tu_main_946_1020.png.webp",
-      "price": "10000",
-      "id": 1
-    },
-    {
       "name": "Đồng hồ thời trang",
-      "image": "https://product.hstatic.net/200000289371/product/dong-ho-thong-minh-tre-em-kids-life-xanh_e5df97f5e1c54474a2c2fe0146775174_master.jpg",
-      "price": "10000",
+      "image": "https://cdn11.dienmaycholon.vn/filewebdmclnew/DMCL21/Picture//Apro/Apro_product_25081/dong-ho-treo-tu_main_946_1020.png.webp",
+      "price": "500000",
       "id": 2
     }
   ],
