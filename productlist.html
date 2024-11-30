@@ -17,33 +17,32 @@
                 <th>Thao tác</th>
             </tr>
         </thead>
-        <tbody></tbody>
+        <tbody>
+        </tbody>
     </table>
     <script>
-        // IIFE 
         const tbody = document.querySelector('tbody');
-        (async ()=>{
-            
+        // IIFE 
+        (async()=>{
             try {
-               const response = await fetch(`http://localhost:3000/products`)
-               if (!response.ok) throw new Error('Lỗi')
-               // chuyển response sang json
+                const response = await fetch(`http://localhost:3000/products`)
+                if (!response.ok) throw new Error('Lỗi')
+                // chuyển response sang json
                 const products = await response.json()
                 // console.log(products);   
                 products.forEach((product,index)=>{
                     // tạo thẻ tr
                     const tr = document.createElement('tr')
-                    // Đưa thông tin sản phẩm vào thẻ tr
+                    // Đổ dữ liệu sản phẩm vào tr
                     tr.innerHTML = `
                         <td>${index+1}</td>
-                        <td><img width="90" src="${product.image}"/></td>
+                        <td><img width="90" src="${product.image}"/> </td>
                         <td>${product.name}</td>
                         <td>${product.price}</td>
                         <td>
-                           <a href="edit.html?id=${product.id}">Sửa</a> | <button onclick = "DelProduct('${product.id}')">Xóa</button>
+                           <a href="edit.html?id=${product.id}"> Sửa</a> | <button onclick="DelProduct('${product.id}')">Xóa</button>
                         </td>
                     `
-                    // chèn vào tbody
                     tbody.append(tr)
                 })             
             } catch (error) {
@@ -51,7 +50,7 @@
             }
         })()
         const DelProduct = async (id)=>{
-            if (confirm('Bạn chắc chứ?')){
+            if (confirm("Bạn chắc chứ?")){
                 try {
                     const response = await fetch(`http://localhost:3000/products/${id}`,{
                         method:'DELETE'
@@ -59,8 +58,7 @@
                     if (!response.ok) throw new Error('Lỗi')
                     alert('Xóa thành công')
                 } catch (error) {
-                    console.log(error);
-                    
+                    console.log(error);                
                 }
             }
         }

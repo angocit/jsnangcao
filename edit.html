@@ -11,7 +11,7 @@
         <input type="text" name="name" placeholder="Tên sản phẩm"/>
         <input type="text" name="image" placeholder="Ảnh sản phẩm"/>
         <input type="text" name="price" placeholder="Giá sản phẩm"/>
-        <button type="submit">Update</button>
+        <button>Update</button>
     </form>
     <script>
         const params = new URLSearchParams(location.search)
@@ -19,8 +19,8 @@
         console.log(productid);        
         const name = document.querySelector('input[name=name]')
         const image = document.querySelector('input[name=image]')
-        const price = document.querySelector('input[name=price]')
-        const productfrm = document.getElementById('productfrm');       
+        const price = document.querySelector('input[name=price]');
+        // IIFE 
         (async ()=>{
             try {
                 const response = await fetch(`http://localhost:3000/products/${productid}`)
@@ -28,16 +28,17 @@
                 // chuyển response sang json
                 const product = await response.json()
                 console.log(product);
-                // Gán thông tin sản phẩm vào input
-                name.value = product.name
-                image.value = product.image
-                price.value = product.price
+                // Gán dữ liệu vào input
+                name.value = product.name        
+                image.value = product.image        
+                price.value = product.price        
             } catch (error) {
                 console.log(error);                
             }
         })()
+        const productfrm = document.getElementById('productfrm')
         productfrm.addEventListener('submit',async (e)=>{
-            e.preventDefault() // NGăn trình duyệt chuyển hướng
+            e.preventDefault() // Ngăn trình duyệt chuyển hướng
             const data = {
                 name: name.value,
                 image: image.value,
@@ -45,22 +46,22 @@
             }
             if (validate(name.value,image.value,price.value)){
                 try {
-                const response = await fetch(`http://localhost:3000/products/${productid}`,{
+                    const response = await fetch(`http://localhost:3000/products/${productid}`,{
                         method:'PUT',
-                        headers:{'Content-type':'Application/json'},
+                        headers: {'Content-type':'Application/json'},
                         body: JSON.stringify(data)
-                }) 
-                if (!response.ok) throw new Error('Lỗi')
-                window.location = "productlist.html"
-                alert('Sửa thành công')
+                    })
+                    if (!response.ok) throw new Error('Lỗi')
+                    window.location = "productlist.html"
+                    alert('Cập nhật thành công')
                 } catch (error) {
                     console.log(error);                
                 }
             }
-            else alert('Tên,ảnh không để trống. Giá >1000')
+            else alert('Tên,ảnh không để trống. Giá > 1000')
         })
         const validate = (name,image,price)=>{
-            // Biểu thức AND
+            //Biểu thức AND
             return name.trim().length>0&&image.trim().length>0&&!isNaN(price)&&price>1000
         }
     </script>
