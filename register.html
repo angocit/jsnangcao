@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Đăng ký</h1>
+    <form id="productfrm">
+      <input type="text" name="name" placeholder="Tên người dùng" />
+      <input type="text" name="email" placeholder="Email" />
+      <input type="text" name="password" placeholder="Mật khẩu" />
+      <button>Thêm mới</button>
+    </form>
+    <script>
+      const name = document.querySelector("input[name=name]");
+      const email = document.querySelector("input[name=email]");
+      const password = document.querySelector("input[name=password]");
+      const productfrm = document.getElementById("productfrm");
+      // bắt sự kiện submit
+      productfrm.addEventListener('submit',async (e)=>{
+        e.preventDefault() // Ngăn trình duyệt chuyển hướng
+        const data = {
+            name: name.value,
+            email: email.value,
+            password: password.value,
+        }
+        if (validate(email.value,password.value)) {
+            try {
+                const response = await fetch(`http://localhost:3000/register`,{
+                    method:'POST',
+                    headers:{'Content-type':'Application/json'},
+                    body: JSON.stringify(data)
+                })
+                if (!response.ok) throw await response.json()
+                alert('Đăng ký thành công')
+            } catch (error) {
+               alert(error)            
+            }
+        }
+        else alert('Email đúng định dang, mật khẩu > 5 kí tự')
+      })
+      const validate = (email,password)=>{
+        //Biểu thức AND
+        return email.includes('@')&&email.includes('.')&password.length>5
+      }
+    </script>
+  </body>
+</html>

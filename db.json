@@ -7,5 +7,36 @@
       "id": 2
     }
   ],
-  "users": []
+  "users": [
+    {
+      "email": "ngocnv34@fpt.edu.vn",
+      "password": "$2a$10$LOMc01kb9RevjKRgOkQVM.acDgu/qOASF09S93KoAQ0X.jfWxqneG",
+      "name": "dsfads",
+      "id": 1
+    },
+    {
+      "email": "angocit@gmail.com",
+      "password": "$2a$10$x/9708iLVcYJ.1L0QmwK8OTPLaJgcBYdvrz2CD8aJo/VvQBOy8Kwm",
+      "name": "Giày nữ ABC",
+      "id": 2
+    },
+    {
+      "email": "ngocnv35@fpt.edu.vn",
+      "password": "$2a$10$0eCk3PNqsq6fy0XLHh8vv.RxrkP2utY6B5ctwLYO8068l0gKN7sqi",
+      "name": "Ngọc",
+      "id": 3
+    },
+    {
+      "email": "ngocnv34@fe.edu.vn",
+      "password": "$2a$10$gO89mcDuWu0eyo4TaKKvBehg2v5YCI3qKLtEzuc7CS3Gr5UEKE8NS",
+      "name": "sdfsdf",
+      "id": 4
+    },
+    {
+      "email": "ngocnv31@fpt.edu.vn",
+      "password": "$2a$10$FpGkpFwU6yogKzfq2Z993OmxvYVFg2XvDCJAYJOylBPDhRCseHepO",
+      "name": "Ngọc",
+      "id": 5
+    }
+  ]
 }
