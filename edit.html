@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Cập nhật sách</h1>
+    <form id="form">
+        <input id="ten" name="ten" placeholder="Tên sách"/>
+        <input id="nxb" name="nxb" placeholder="Nhà xuất bản"/>
+        <input id="namxb" name="namxb" placeholder="Năm xuất bản"/>
+        <input id="gia" name="gia" placeholder="Giá tiền"/>
+        <button>Cập nhật</button>
+    </form>
+    <script>
+        // Lấy ID từ URL
+        const param = new URLSearchParams(location.search)
+        const id = param.get("id")
+        // Viết hàm lấy thông tin sản phẩm theo ID và đổ vào form
+        const GetBookById = async()=>{
+            try {
+                const response = await fetch(`http://localhost:3000/books/${id}`)
+                if (!response.ok) throw "Lỗi lấy chi tiết"
+                const book = await response.json() // Chuyển sang json
+                // Đổ dữ liệu vào input
+                document.getElementById("ten").value = book.ten
+                document.getElementById("nxb").value = book.nxb
+                document.getElementById("namxb").value = book.namxb
+                document.getElementById("gia").value = book.gia
+            } catch (error) {
+                alert(error)
+            }
+        }
+        //Gọi hàm Lấy chi tiết
+        GetBookById()
+        // Truy cập form
+        const form = document.getElementById("form")
+        // Lắng nghe sự kiện submit
+        form.addEventListener("submit",async (e)=>{
+            e.preventDefault() // Ngăn trình duyệt chuyển hướng
+            // Lấy dữ liệu từ input
+            const ten = document.getElementById("ten").value
+            const nxb = document.getElementById("nxb").value
+            const namxb = document.getElementById("namxb").value
+            const gia = document.getElementById("gia").value
+            // Validate tên 
+            if (ten.trim().length==0){
+                alert("Tên không để trống")
+                return;
+            }
+            //Giá số không âm. isNaN (is Not a Number)
+            // isNaN(value): nghĩa là: nếu value mà là string thì sẽ true 
+            if (gia.trim().length==0||isNaN(gia)||gia<0){
+                alert("Giá phải là số và >0")
+                return
+            }
+            // GỬi dữ liệu để lưu db
+            try {
+                const response = await fetch(`http://localhost:3000/books/${id}`,
+                    {
+                        method:"PUT",
+                        headers: {"content-type":"application/json"},
+                        body:JSON.stringify({ten,nxb,namxb,gia})
+                    }
+                )
+                if (!response.ok) throw "Lỗi"
+                window.location ="book.html"
+                alert("Cập nhật thành công")
+            } catch (error) {
+                alert(error)
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+1. Cứ fetch là phải xử lý bất đồng bộ (then,catch hoặc async/await)
+2. Lỗi ReferenceError: data is not defined (biến hoặc hàm chưa được định nghĩa). cách xử lý:
+    - mở f12 sau đó mở tab console
+    - Bỏ try - catch 
+    - Xem báo lỗi ở dòng nào
+    - Kiểm tra xem biến, hàm được định nghĩa hay chưa bằng cách dò dần lên trên, sau đó xuống dưới
+    hoặc ctrl+f
+    - CÓ thể tên biến, hoặc hàm sai chính tả hoặc sai dấu, kí tự
+3. Khi thêm mới, db chỉ hiển thị mỗi id
+   - Kiểm tra phương thức POST xem đã có headers hay chưa (headers có s)
+   - Có headers rồi thì kiểm tra {'Content-type': 'application/json'} đúng chính tả hay chưa 
+
+4. Đăng ký (Gặp lỗi validate từ backend)
+    - Chuyển sang tab network ở cửa sổ f12 chrome
+      a. Kiểm tra payload xem dữ liệu gửi đi đúng chưa?
+      b. Kiểm tra response xem thông báo là gì

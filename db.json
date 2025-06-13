@@ -1,0 +1,30 @@
+{
+  "books": [
+    {
+      "ten": "acbsdfasd",
+      "nxb": "sds",
+      "namxb": "3434",
+      "gia": "11212",
+      "id": 1
+    },
+    {
+      "ten": "sdfs update",
+      "nxb": "sdfsd",
+      "namxb": "sdfds",
+      "gia": "1000",
+      "id": 3
+    }
+  ],
+  "users": [
+    {
+      "email": "ngocnv@gmail.com",
+      "password": "$2a$10$qkw8/igTb2auqfIllMvoGua8xbikm0cRQogeA.d2TiWy0jnjCHfPq",
+      "id": 1
+    },
+    {
+      "email": "ngocnv34@fpt.edu.vn",
+      "password": "$2a$10$NkcmGl6fj9m68x/cbmxYZObxnbIrnaMTgrWFezW5WFLVHys50HGCK",
+      "id": 2
+    }
+  ]
+}

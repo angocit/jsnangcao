@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Danh sách sản phẩm</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>STT</th>
+                <th>Tên sách</th>
+                <th>Nhà XB</th>
+                <th>Năm XB</th>
+                <th>Giá</th>
+                <th>Thao tác</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <script>
+        // Truy cập tbody
+        const tbody = document.querySelector("tbody")
+        // Viết hàm call API lấy dữ liệu
+        const GetAllProduct = async ()=>{
+            try {
+                const response = await fetch(`http://localhost:3000/books`)
+                if (!response.ok) throw "Lỗi fetch API"
+                //Nếu thành công
+                const books = await response.json()
+                // console.log(books);
+                let tr = ''
+                //Duyệt mảng
+                books.forEach((item,index)=>{
+                    tr +=`
+                        <tr>
+                            <td>${index+1}</td>    
+                            <td>${item.ten}</td>    
+                            <td>${item.nxb}</td>    
+                            <td>${item.namxb}</td>    
+                            <td>${item.gia}</td>    
+                            <td>
+                                <a href="edit.html?id=${item.id}">Sửa</a>
+                                <button onclick="delBook('${item.id}')">Xóa</button>
+                            </td>    
+                        </tr>
+                    `
+                })
+                // Đổ dữ liệu tr vào tbody
+                tbody.innerHTML = tr
+            } catch (error) {
+                alert(error)
+            }
+        }
+        //Gọi hàm
+        GetAllProduct()
+        // Định nghĩa hàm xóa
+        const delBook = async (id)=>{
+            if(confirm("Bạn chắc chứ?")){
+                try {
+                    const response = await fetch(`http://localhost:3000/books/${id}`,{
+                        method:'DELETE'
+                    })
+                    if (!response.ok) throw "Lỗi không thể xóa"
+                    alert("Xóa thành công")
+                } catch (error) {
+                    alert(error)
+                }   
+            }
+        }
+    </script>
+</body>
+</html>
