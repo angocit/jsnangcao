@@ -118,20 +118,32 @@
 // ) Nếu tất cả đều là falsy value thì nó sẽ nhận giá trị cuối cùng
  const value = 0||false||""||10||null||undefined
  console.log(value);
- function handleSubmit(){
+//  function handleSubmit(){
+//     const address1 = document.getElementById("address").value
+//     const address2 = document.getElementById("address2").value
+//     // Nếu người dùng nhập địa chỉ 1 thì lấy địa chỉ 1, không nhập thì lấy địa chỉ 2
+//     // nếu địa chỉ 2 cũng không nhập thì lấy địa chỉ là Hà Nội
+//     // let address = address1
+//     // if (address1==''){
+//     //     address = address2
+//     // }
+//     // if (address==''){
+//     //     address="Hà Nội"
+//     // }
+//     // console.log(address);  
+//     const address = address1||address2||"Hà Nội"
+//     console.log(address);
+      
+//  }
+//  Biểu thức AND && :Duyệt từ trái qua phải cho đến khi gặp falsy value thì dừng
+// và nhận giá trị là falsy value 
+// Nếu tất cả đều không phải là falsy value thì nhận giá trị cuối cùng
+// const message = "Ngọc"&&"Minh"&&"An"
+// console.log(message);
+// Ứng dụng: Khi cần kiểm tra nhiều điều kiện
+// liên tiếp nhau 
+function handleSubmit(){
     const address1 = document.getElementById("address").value
     const address2 = document.getElementById("address2").value
-    // Nếu người dùng nhập địa chỉ 1 thì lấy địa chỉ 1, không nhập thì lấy địa chỉ 2
-    // nếu địa chỉ 2 cũng không nhập thì lấy địa chỉ là Hà Nội
-    // let address = address1
-    // if (address1==''){
-    //     address = address2
-    // }
-    // if (address==''){
-    //     address="Hà Nội"
-    // }
-    // console.log(address);  
-    const address = address1||address2||"Hà Nội"
-    console.log(address);
-      
- }
+   address1&&address2&&console.log("Submit thành công");
+}
