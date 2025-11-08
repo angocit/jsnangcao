@@ -142,8 +142,13 @@
 // console.log(message);
 // Ứng dụng: Khi cần kiểm tra nhiều điều kiện
 // liên tiếp nhau 
-function handleSubmit(){
-    const address1 = document.getElementById("address").value
-    const address2 = document.getElementById("address2").value
-   address1&&address2&&console.log("Submit thành công");
-}
+// function handleSubmit(){
+//     const address1 = document.getElementById("address").value
+//     const address2 = document.getElementById("address2").value
+//    address1&&address2&&console.log("Submit thành công");
+// }
+// Nullish ??: Hoạt động tương tự biểu thức OR nhưng thay vì so sánh với
+// falsy value thì nó chỉ so sánh với null và undefined
+// const message = 0??false??null??10
+const message = null??undefined??false??null
+console.log(message);
