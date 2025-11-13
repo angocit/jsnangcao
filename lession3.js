@@ -43,39 +43,61 @@
 
 // Set: Lưu trữ những giá trị là duy nhất (không trùng nhau)
 // Cú pháp:
-const set = new Set()
-// 1 số phương thức và thuộc tính:
-// Thêm ptu vào Set: set.add(value)
-set.add(5)
-set.add(7)
-set.add(9)
-set.add(5)
-console.log(set);
-// Xóa ptu trong Set: set.delete(value)
-set.delete(5)
-console.log(set);
-// Xóa toàn bộ: set.clear()
-// set.clear()
-// Ktra giá trị có tồn tại trong Set: 
-// set.has(value)=>boolean
-console.log(set.has(7));
-// Trả về số lượng ptu trong Set: set.size
+// const set = new Set()
+// // 1 số phương thức và thuộc tính:
+// // Thêm ptu vào Set: set.add(value)
+// set.add(5)
+// set.add(7)
+// set.add(9)
+// set.add(5)
+// console.log(set);
+// // Xóa ptu trong Set: set.delete(value)
+// set.delete(5)
+// console.log(set);
+// // Xóa toàn bộ: set.clear()
+// // set.clear()
+// // Ktra giá trị có tồn tại trong Set: 
+// // set.has(value)=>boolean
+// console.log(set.has(7));
+// // Trả về số lượng ptu trong Set: set.size
 
-console.log(set.size);
-// Lưu ý: - K thể truy cập đc ptu trog set
-// Nhưng có thể duyệt Set = for
-for (item of set){
-    console.log(`Giá trị: ${item}`);    
-}
-// Tạo set từ mảng và tạo mảng từ set
-console.log(`---TẠO SET TỪ MẢNG---`);
+// console.log(set.size);
+// // Lưu ý: - K thể truy cập đc ptu trog set
+// // Nhưng có thể duyệt Set = for
+// for (item of set){
+//     console.log(`Giá trị: ${item}`);    
+// }
+// // Tạo set từ mảng và tạo mảng từ set
+// console.log(`---TẠO SET TỪ MẢNG---`);
 
-const a = [6,3,4,8,6,6,10]
-const set2 = new Set(a)
-console.log(set2);
-console.log(`---TẠO MẢNG TỪ SET---`);
-const b = [...set2]
-console.log(b);
+// const a = [6,3,4,8,6,6,10]
+// const set2 = new Set(a)
+// console.log(set2);
+// console.log(`---TẠO MẢNG TỪ SET---`);
+// const b = [...set2]
+// console.log(b);
 // Ứng dụng: Lọc trùng, ktra ptu
 
+// Map: Lưu trữ theo cặp giá trị (key,value)
+// key: có thể là giá trị bất kì
+// Cứ pháp:
+const map = new Map()
+// Một số phương thức và thuộc tính
+// Thêm giá trị: map.set(key,value)
+map.set("name","Ngọc")
+map.set("age",20)
+map.set("address","Thái Nguyên")
+console.log(map);
+// Xóa: map.delete(key)
+map.delete("age")
+console.log(map);
+// Xóa hết. map.clear()
+// map.clear()
+//Ktra key có tồn tại không: map.has(key)
+// trả về boolean
+console.log(map.has("address"));
+// Đến số lượng cặp key-value
+console.log(map.size)
+// Lấy giá trị của key: map.get(key)
+console.log(map.get("name"));
 
