@@ -31,25 +31,41 @@ const Display = (a,b,cb)=>{
     console.log(`Tổng 2 số:
          ${a}+${b}=${cb(a,b)} `);    
 }
-Display(8,9,tinhtong)
+Display(8,9,tinhtong);
 // B. Tập: 1. Viết hàm xử lý tính tổng các
 // phần tử của mảng 
 // 2. Cho mảng a = [6,9,10,30]
 //  - Viết hàm hiển thị các ptu của mảng
 // và hiển thị tổng các phần tử trong mảng 
-const a = [6,9,10,30]
-const tongmang = arr=>{
-    let total = 0;
-    for (item of arr){
-        total+=item
+// const a = [6,9,10,30]
+// const tongmang = arr=>{
+//     let total = 0;
+//     for (item of arr){
+//         total+=item
+//     }
+//     return total
+// }
+// const HienthiMang = (arr,cb)=>{
+//     console.log(`Ds các phần tử`);
+//     for (i of arr){
+//         console.log(i);        
+//     }
+//     console.log(`Tổng các ptu mảng: ${cb(arr)} `);    
+// }
+// HienthiMang(a,tongmang)
+// IIFE // Gọi hàm ngay lập tức:
+//Cú pháp: (khối lệnh)(tham số)
+
+// ((a,b)=>console.log(`Tổng 2 số là ${a+b}`))(9,10)
+// Hàm return hàm:
+const tinhtich = (dai,rong)=>{
+    const tich = dai*rong 
+    return (cao)=>{
+        console.log(`Thể tích khối là: ${tich*cao} `);
     }
-    return total
 }
-const HienthiMang = (arr,cb)=>{
-    console.log(`Ds các phần tử`);
-    for (i of arr){
-        console.log(i);        
-    }
-    console.log(`Tổng các ptu mảng: ${cb(arr)} `);    
-}
-HienthiMang(a,tongmang)
+// Gọi hàm
+const thetich = tinhtich(10,5)
+thetich(5)
+// 
+tinhtich(10,20)(8)
