@@ -135,6 +135,7 @@ content2.classList.remove("content2")
 // B1. truy cập vào form
 const form = document.querySelector("#infoFrm")
 // B2. Bắt sự kiện submit form
+const userList = []
 form.addEventListener("submit",(e)=>{
     e.preventDefault() // Ngăn trình duyệt chuyển hướng
     // alert("Ahihihi")
@@ -144,5 +145,27 @@ form.addEventListener("submit",(e)=>{
     const phone = document.querySelector("#infoFrm input[name=phone]").value
     // Đưa vào object
     const info = {name,address:address||"Hà Nội",phone}
-    console.log(info);    
+    userList.push(info)
+    // Truy cập vào vị trí hiển thị
+    const elmposition = document.querySelector("#infoList .list")
+    Display(userList,elmposition)
+    // console.log(info); 
+    // truy cập vào #infoList để thêm class 
+    const infolistelm = document.querySelector("#infoList")
+    infolistelm.classList.add("active")
 })
+const Display = (arr,elm)=>{
+    let html =''
+    // Duyệt mảng 
+    arr.forEach(({name,phone},index)=>{
+        html +=`
+            <li>${index+1} Họ tên: ${name} SĐT: ${phone}</li>
+        `
+    })
+    elm.innerHTML = `<ul>${html}</ul>`
+}
+const CloseSidebar =()=>{
+    // Truy cập vào phần tử cần đóng
+    const elm = document.querySelector("#infoList")
+    elm.classList.remove("active")
+}

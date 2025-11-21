@@ -12,7 +12,12 @@
             border: 1px solid #ccc;
             position: fixed;
             top:0;
-            right: 0
+            right: 0;
+            transform: translateX(100%);
+            transition: all 0.3s linear;
+        }
+        #infoList.active{
+            transform: translateX(0);
         }
     </style>
 </head>
@@ -36,8 +41,11 @@
         <button id="submit" type="submit">Submit</button>
     </form>
     <div id="infoList">
-        <button>Close</button>
+        <button onclick="CloseSidebar()">Close</button>
         <h4>Danh sách người dùng</h4>
+        <div class="list">
+
+        </div>
     </div>
     <script src="./lession6.js"></script>
 </body>
