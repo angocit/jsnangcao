@@ -4,6 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        #infoList{
+            width: 300px;
+            height: 100vh;
+            background: #eee;
+            border: 1px solid #ccc;
+            position: fixed;
+            top:0;
+            right: 0
+        }
+    </style>
 </head>
 <body>
     <input id="name" name="name" placeholder="Nhập địa chỉ"/>
@@ -24,6 +35,10 @@
         <input type="text" name="phone" placeholder="SĐT"/>
         <button id="submit" type="submit">Submit</button>
     </form>
+    <div id="infoList">
+        <button>Close</button>
+        <h4>Danh sách người dùng</h4>
+    </div>
     <script src="./lession6.js"></script>
 </body>
 </html>
