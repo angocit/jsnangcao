@@ -76,12 +76,13 @@ console.log(parent); // body
 // B1: Truy cập vào element có class content 
 // B2: Lấy ptu con qua thuộc tính children
 const content = document.querySelector('.content')
+console.dir(content)
 const children = content.children
 console.log(children);
 // Lấy qua các phần tử lân cận (sibling)
 
 const address4 = document.getElementById("address")
-console.dir(address4)
+// console.dir(address4)
 // Thằng trước nó 
 const prev = address4.previousElementSibling
 console.log(prev);
@@ -91,7 +92,57 @@ console.log(prev);
 const next = address4.nextElementSibling
 console.log(next);
 // Tip: Có thể in ra thuộc tính của phần tử bằng console.dir(ptu)
-
- 
-
-
+// Cập nhật thuộc tính
+// - Gán thuộc tính 
+// - innerHTML 
+// VD: Thay đổi nội dung trong class content 
+// B1: Truy cập vào ptu có class content
+const content2 = document.querySelector(".content")
+// B2: gán thuộc tính innerHTML
+content2.innerHTML=`
+<h1>Xin chào MD20302</h1>
+`
+console.dir(content2)
+content2.style.background ="red"
+content2.style.color = "white"
+// Thay đổi attribute: setAttribute/getAttribute
+// VD : Thêm attribute data cho ptu có class là content
+content2.setAttribute("data",10)
+// Lấy giá trị của attribute
+const value = content2.getAttribute("data")
+console.log(value);
+// Thay đổi class.
+const contentclass =content2.getAttribute("class")
+console.log(contentclass);
+content2.className="content content2 content3"
+content2.classList.add("content4")
+content2.classList.remove("content2")
+// Bắt sự kiện thông qua eventListenner
+// Bắt sự kiện click vào button submit
+// B1  truy cập vào button
+// const bt = document.getElementById("submit")
+// // console.dir(bt)
+// // bt.addEventListener("click",()=>{
+// //     alert("Bạn vừa click")
+// // })
+// bt.addEventListener("mouseenter",()=>{
+//     console.log("Bạn vừa di chuột vào")
+// })
+// bt.addEventListener("mouseleave",()=>{
+//     console.log("Bạn vừa di chuột ra")
+// })
+// Bắt sự kiện submit form và lấy dữ liệu từ các ô input 
+// B1. truy cập vào form
+const form = document.querySelector("#infoFrm")
+// B2. Bắt sự kiện submit form
+form.addEventListener("submit",(e)=>{
+    e.preventDefault() // Ngăn trình duyệt chuyển hướng
+    // alert("Ahihihi")
+    // B3: Lấy dữ liệu từ input
+    const name = document.querySelector("#infoFrm input[name=name]").value
+    const address = document.querySelector("#infoFrm input[name=address]").value
+    const phone = document.querySelector("#infoFrm input[name=phone]").value
+    // Đưa vào object
+    const info = {name,address:address||"Hà Nội",phone}
+    console.log(info);    
+})
