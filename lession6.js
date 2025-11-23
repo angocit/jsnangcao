@@ -69,7 +69,6 @@ console.log(parent);
 // B2: Sử dụng thuộc tính children
 const content = document.querySelector(".content")
 console.dir(content)
-content.innerHTML ="MD20302"
 const child = content.children
 console.log(child);
 // 3. Truy cập vào phần tử hàng xóm (lân cận) sử dụng sibling
@@ -84,3 +83,34 @@ const prev = name.previousElementSibling
 const next = name.nextElementSibling
 // Tip: Để in ra các thuộc tính và phương thức của ptu thì có thể sử dụng
 // console.dir(elm)
+// Tạo ra phần tử mới
+// const newElm = document.createElement("tagname")
+// VD: Tạo ra thẻ div có nội dung là:MD20301 
+const newDiv = document.createElement("div")
+// Chèn text vào thẻ 
+newDiv.innerHTML = "MD20301"
+// Chèn vào DOM
+// B1: Truy cập vào phần tử muốn chèn
+// B2: Chèn vào vị trí nào? Đầu tiên => prepand(elm), cuối cùng => append(elm)
+// VD:  Chèn div vừa tạo bên trên vào trong thẻ có class là content
+const contentElm = document.querySelector(".content")
+// Vào vị trí đầu tiên 
+// contentElm.prepend(newDiv)
+// Vào vị trí cuối cùng
+contentElm.append(newDiv)
+// Get và Set attribute
+// VD: Lấy giá data của phần tử có id là datademo
+// B1: Truy cập vào ptu
+const demo = document.getElementById("datademo")
+const value = demo.getAttribute("data")
+console.log(value);
+// Thay đổi giá trị của data attribute
+demo.setAttribute("data","MD20502")
+// Sự kiện: addEventListener
+// VD: Bắt sự kiện vào nút button
+// B1: Truy cập vào button 
+const btsubmit = document.querySelector("#submit")
+// Bắt sự kiện submit
+btsubmit.addEventListener("click",()=>{
+    alert("Ahihi")
+})
