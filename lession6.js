@@ -114,3 +114,34 @@ const btsubmit = document.querySelector("#submit")
 btsubmit.addEventListener("click",()=>{
     alert("Ahihi")
 })
+console.dir(btsubmit)
+// Bắt sự kiện di chuột
+btsubmit.addEventListener("mouseenter",()=>{
+    console.log("Bạn vừa di chuột vào");    
+})
+btsubmit.addEventListener("mouseleave",()=>{
+    console.log("Bạn vừa di chuột ra");    
+})
+// Bắt sự kiện submit form và lấy thông tin từ ô input
+// Sau khi submit thì clear text ở ô input
+// B1. Truy cập vào form
+const studentFrm = document.querySelector("#infofrm")
+// Bắt sự kiện qua addEventListener
+studentFrm.addEventListener("submit",(e)=>{
+    e.preventDefault() // Ngăn trình duyệt chuyển hướng 
+    // Truy cập vào các ô input để lấy dữ liệu
+    const name = document.querySelector("#infofrm input[name=name]")
+    const address = document.querySelector("#infofrm input[name=address]")
+    const phone = document.querySelector("#infofrm input[name=phone]")
+    // Chuyển tất cả thông tin từ các ô input về object
+    const data = {
+        name:name.value,
+        address:address.value||"Hà Nội",
+        phone:phone.value
+    }
+    console.log(data);    
+    name.value=""
+    address.value=""
+    phone.value=""
+    name.focus()
+})
