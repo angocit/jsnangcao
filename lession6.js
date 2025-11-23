@@ -127,6 +127,7 @@ btsubmit.addEventListener("mouseleave",()=>{
 // B1. Truy cập vào form
 const studentFrm = document.querySelector("#infofrm")
 // Bắt sự kiện qua addEventListener
+const students = []
 studentFrm.addEventListener("submit",(e)=>{
     e.preventDefault() // Ngăn trình duyệt chuyển hướng 
     // Truy cập vào các ô input để lấy dữ liệu
@@ -139,9 +140,55 @@ studentFrm.addEventListener("submit",(e)=>{
         address:address.value||"Hà Nội",
         phone:phone.value
     }
-    console.log(data);    
+    // console.log(data);   
+    students.push(data)
+    RenderStudent(students)    
+    // Thêm class active vào trong sidebar 
+    // Truy cập sidebar và classList.add
+    document.querySelector("#sidebar").classList.add("active")
     name.value=""
     address.value=""
     phone.value=""
     name.focus()
 })
+const RenderStudent = (studentArr)=>{
+    // Truy cập tbody
+    const tbody = document.querySelector("#sidebar tbody")
+    let html = ''
+    // Duyệt mảng
+    // studentArr.forEach((student,index)=>{
+    //     html +=`
+    //         <tr>
+    //             <td>${index+1}</td>
+    //             <td>${student.name}</td>
+    //             <td>${student.address}</td>
+    //             <td>${student.phone}</td>
+    //         </tr>
+    //     `
+    // })
+    // Sử dụng destructuring
+    studentArr.forEach(({name,address,phone},index)=>{
+        html +=`
+            <tr>
+                <td>${index+1}</td>
+                <td>${name}</td>
+                <td>${address}</td>
+                <td>${phone}</td>
+            </tr>
+        `
+    })
+    tbody.innerHTML = html
+}
+const CloseSidebar = ()=>{
+    // Truy cập vào sidebar và remove class active
+    // document.querySelector("#sidebar").classList.remove("active")
+    // truy cập sidebar 
+    const sidebar = document.querySelector("#sidebar")
+    // Kiểm trả có tồn tại class active trong sidebar hay không
+    if (sidebar.classList.contains("active")){
+        sidebar.classList.remove("active")
+    }
+    else {
+        sidebar.classList.add("active")
+    }
+}

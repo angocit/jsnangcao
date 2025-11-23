@@ -4,6 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        #sidebar{
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 350px;
+            height: 100vh;
+            border-left: 1px solid #ccc;
+            padding: 10px;
+            /* overflow-y: auto; */
+            background-color: #f1f1f1;
+            transform: translateX(100%);
+            transition: all 0.3s linear;
+        }
+        #sidebar button{
+            transform: translateX(-100%);
+        }
+        #sidebar.active{
+            transform: translateX(0);
+        }
+        #sidebar.active button{transform: translateX(0);}
+
+    </style>
 </head>
 <body>
     <input placeholder="Địa chỉ" id="address" name="address"/>
@@ -25,6 +48,23 @@
         <input type="text" placeholder="Số điện thoại" name="phone"/>        
         <button type="submit">Thêm mới</button>
     </form>
+    <div id="sidebar">
+        <div class="header"><button onclick="CloseSidebar()">Close</button></div>
+        <h3>Danh sách sinh viên</h3>    
+        <table>
+            <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>Họ tên</th>
+                    <th>Địa chỉ</th>
+                    <th>SĐT</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
     <script src="lession6.js"></script>
 </body>
 </html>
