@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        *{
+            box-sizing: border-box;
+        }
         #infoList{
             width: 300px;
             height: 100vh;
@@ -19,6 +22,8 @@
         #infoList.active{
             transform: translateX(0);
         }
+        img{max-width: 100%;}
+        .listproduct {display: grid; grid-template-columns: repeat(5,1fr); gap:20px}
     </style>
 </head>
 <body>
@@ -46,6 +51,10 @@
         <div class="list">
 
         </div>
+    </div>
+     <h4>Danh sách sản phẩm</h4>
+    <div class="listproduct">
+
     </div>
     <script src="./lession7.js"></script>
 </body>
