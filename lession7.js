@@ -64,3 +64,72 @@
 // }
 // Ví dụ: Call API lấy danh sách sản phẩm từ API sau: https://fakestoreapi.com/products
 // làm theo 2 cách 
+// C1 
+// Fetch API 
+const response = fetch("https://fakestoreapi.com/products")
+console.log(response);
+response.then(value=>{
+    console.log(value);    // Trả về Response
+    // -  Chuyển response sang json
+    const data = value.json()
+    // console.log(data); 
+    // data.then(value=>{
+    //     console.log(value);        
+    // }) 
+    return data  
+}).then(value=>{
+    console.log(value);    
+})
+// Sử dụng hàm async/await 
+const GetAllProduct = async()=>{
+    const response = await fetch("https://fakestoreapi.com/products")
+    const data = await response.json()
+    console.log(data);    
+    RenderProduct(data)
+}
+GetAllProduct()
+const RenderProduct = (productArr)=>{
+    // Truy cập vào vị trí muốn hiển thị: #listproduct
+    const listproduct = document.getElementById("listproduct")
+    //  Duyệt mảng 
+    // C1:
+    // listproduct.innerHTML = productArr.map(({title,image,price})=>{
+    //     return `
+    //         <div class="item">
+    //             <img src="${image}"/>
+    //             <h3>${title}</h3>
+    //             <span>${price}</span>
+    //         </div>
+    //     `
+    // }).join("")
+    // C2:
+    // let html = ""
+    // productArr.forEach(({title,image,price})=>{
+    //     html +=`<div class="item">
+    //              <img src="${image}"/>
+    //              <h3>${title}</h3>
+    //              <span>${price}</span>
+    //              </div>`
+    // })
+    // listproduct.innerHTML = html
+    // C3:
+    productArr.forEach(({title,image,price})=>{
+        // Tạo thẻ div
+        const div = document.createElement('div')
+        div.innerHTML =`
+            <img src="${image}"/>
+            <h3>${title}</h3>
+            <span>${price}</span>
+        `
+        // Chèn vào element cha
+        listproduct.appendChild(div)
+    })
+}
+// Lưu ý: Sử dụng try/catch để xử lý trường hợp promise reject
+// const tenham = async ()=>{
+//     try {
+//         // Todo
+//     } catch (error) {
+//         // nhận dữ liệu reject
+//     }
+// }
