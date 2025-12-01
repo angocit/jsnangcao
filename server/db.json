@@ -1,16 +1,23 @@
 {
   "products": [
     {
-      "name": "23423432",
+      "name": "Sản phẩm update 2",
       "image": "https://cdn11.dienmaycholon.vn/filewebdmclnew/DMCL21/Picture//Apro/Apro_product_25081/dong-ho-treo-tu_main_946_1020.png.webp",
       "price": "23423",
       "id": 1
     },
     {
-      "name": "34534534",
+      "name": "Sản phẩm 2 update",
       "image": "https://cdn11.dienmaycholon.vn/filewebdmclnew/DMCL21/Picture//Apro/Apro_product_25081/dong-ho-treo-tu_main_946_1020.png.webp",
-      "price": "345345",
+      "price": "500000",
       "id": 2
+    }
+  ],
+  "users": [
+    {
+      "email": "angocit@gmail.com",
+      "password": "$2a$10$uH6D/NbjOIRqhDxwIvnnyOWoOEsuK7QJzepwQIq7mQ6IonhN.3XD.",
+      "id": 1
     }
   ]
 }

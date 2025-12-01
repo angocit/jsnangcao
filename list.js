@@ -10,7 +10,7 @@ const RenderProduct = (productArr)=>{
                 <td><img width="90" src="${image}"/></td>
                 <td>${price}</td>
                 <td>
-                    <a>Sửa</a>
+                    <a href="edit.html?id=${id}">Sửa</a>
                     <button onclick="handleDelete(${id})">Xóa</button>
                 </td>
             </tr>
@@ -18,16 +18,23 @@ const RenderProduct = (productArr)=>{
     }).join("")
 }
 const GetAllProduct = async()=>{
-    const response = await fetch("http://localhost:3000/products")
-    const products= await response.json()
-    RenderProduct(products)
+    try {
+        const response = await fetch("http://localhost:3000/products")
+        console.log(response);
+        if (!response.ok) throw "Lỗi"
+        const products= await response.json()
+        RenderProduct(products)
+    } catch (error) {
+        console.log(error);        
+    }
 }
 GetAllProduct()
 const handleDelete = async (id)=>{
     if (!confirm("Bạn chắc chứ?")) return;
     try {
-        await fetch(`http://localhost:3000/products/${id}`,{method:'DELETE'})
-        alert("Xóa thành công")
+       const res = await fetch(`http://localhost:3000/products/${id}`,{method:'DELETE'})
+    if (!res.ok) throw "Lỗi"
+       alert("Xóa thành công")
     } catch (error) {
         alert("Xóa thất bại")
     }
