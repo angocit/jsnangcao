@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="productfrm">
+        <input type="text" placeholder="tên" name="name"/>
+        <input type="text" placeholder="ảnh" name="image"/>
+        <input type="number" placeholder="Giá" name="price"/>
+        <button type="submit">Cập nhật</button>
+    </form>
+    <script>
+        // Các bước 
+        // 1. Lấy id từ url 
+        // 2. Call API lấy chi tiết sản phẩm theo id 
+        // 3. fill data của sản phẩm vào form 
+        // 4. Bắt sự kiện submit form để cập  nhật 
+        const id = new URLSearchParams(location.search).get("id")
+        const name = document.querySelector("#productfrm input[name=name]")
+        const image = document.querySelector("#productfrm input[name=image]")
+        const price = document.querySelector("#productfrm input[name=price]")
+        // console.log(id);
+        const getProductById = async ()=>{
+            try {
+                const res = await fetch(`http://localhost:3000/products/${id}`)
+                if (!res.ok) throw await res.json()
+                const data = await res.json()
+                name.value = data.name 
+                image.value = data.image 
+                price.value = data.price
+            } catch (error) {
+                console.log("Tải sản phẩm thất bại",error);                
+            }
+        }
+        getProductById()
+    // B4  truy cập vào form
+        const productfrm = document.getElementById("productfrm")
+        productfrm.addEventListener('submit',async (e)=>{
+    e.preventDefault() // Ngăn trình duyệt chuyển hướng
+    const data = {name:name.value,image:image.value,price:price.value}
+    if (name.value.trim()==''){
+        alert("Tên không để trống")
+        name.focus()
+        return;
+    }
+    if (image.value.trim()==''){
+        alert("Ảnh không để trống")
+        image.focus()
+        return;
+    }
+    if (price.value.trim()==''||isNaN(price.value)||price.value<0){
+        alert("Giá phải là số và không âm")
+        price.focus()
+        return;
+    }
+    // Gọi API để thêm
+    try {
+       const res = await fetch(`http://localhost:3000/products/${id}`,{
+        method:'PUT',
+        headers:{'Content-type':'Application/json'},
+        body:JSON.stringify(data)
+        })
+        if (!res.ok) throw await res.json()
+        window.location = "list.html" // CHuyển hướng về list
+        alert("Cập nhật thành công")
+    } catch (error) {
+        alert("Cập nhật thất bại")
+    }
+    
+})
+    </script>
+</body>
+</html>

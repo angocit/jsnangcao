@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Danh sách sản phẩm</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>STT</th>
+                <th>Tên sản phẩm</th>
+                <th>Ảnh</th>
+                <th>Giá tiền</th>
+                <th>Thao tác</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <script>
+        const getAllProduct = async ()=>{
+            try {
+                const res = await fetch("http://localhost:3000/products")
+                // console.log(res);
+                if (!res.ok) throw await res.json() // Ném vào catch
+                const data = await res.json()
+                // console.log(data);
+                //   truy cập vào tbody
+                const tbody = document.querySelector('tbody')
+                tbody.innerHTML = data.map(({id,name,image,price},index)=>{
+                    return `
+                        <tr>
+                            <td>${index+1}</td>
+                            <td>${name}</td>
+                            <td><img width="90" src ="${image}"/></td>
+                            <td>${price}</td>
+                            <td>
+                                <a href="edit.html?id=${id}">Sửa</a>
+                                <button onclick="handleDelete(${id})">Xóa</button>
+                            </td>
+                        </tr>
+                    `
+                }).join('')                             
+            } catch (error) {
+                
+            }
+        }
+        getAllProduct()
+        const handleDelete = async(id)=>{
+            if (!confirm("Bạn chắc chứ?")) return;
+            try {
+                const res = await fetch(`http://localhost:3000/products/${id}`,{method:'DELETE'})
+                if (!res.ok) throw await res.json()
+                alert("Xóa thành công")
+            } catch (error) {
+                alert("Xóa thất bại"+error)
+            }
+        }
+    </script>
+</body>
+</html>
