@@ -1,3 +1,5 @@
+import CRUD from './lession8.js'
+const crud = new CRUD("http://localhost:3000/products")
 const frmproduct = document.getElementById("frmproduct")
 frmproduct.addEventListener('submit',async (e)=>{
     e.preventDefault() // Ngăn trình duyệt chuyển hướng
@@ -22,13 +24,12 @@ frmproduct.addEventListener('submit',async (e)=>{
         price.focus()
         return;
     }
-    const response = await fetch("http://localhost:3000/products",{
-        method:'POST',
-        headers: {'Content-type':'Application/json'},
-        body: JSON.stringify(data)
-    })
-    const product = await response.json()
-    alert("Thêm mới thành công")
-    return;
+    try {
+        const newproduct = await crud.AddProduct(data)
+        alert("Thêm mới thành công")
+    } catch (error) {
+        alert("Thêm thất bại")
+    }    
+
     // console.log(product);    
 })

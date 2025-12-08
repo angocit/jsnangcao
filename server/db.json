@@ -11,6 +11,12 @@
       "image": "https://cdn11.dienmaycholon.vn/filewebdmclnew/DMCL21/Picture//Apro/Apro_product_25081/dong-ho-treo-tu_main_946_1020.png.webp",
       "price": "500000",
       "id": 2
+    },
+    {
+      "name": "Sản phẩm 3",
+      "image": "https://cdn11.dienmaycholon.vn/filewebdmclnew/DMCL21/Picture//Apro/Apro_product_25081/dong-ho-treo-tu_main_946_1020.png.webp",
+      "price": "11111",
+      "id": 3
     }
   ],
   "users": [

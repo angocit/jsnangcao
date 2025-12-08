@@ -101,10 +101,11 @@ class CRUDProduct {
         }).join("")
     }
 }
- const crudproduct = new CRUDProduct("http://localhost:3000/products")
- const init = async ()=>{
-    const data = await crudproduct.GetAllProduct()
-    // console.log(data);  
-    crudproduct.RenderProduct(data)  
- }
- init()
+//  const crudproduct = new CRUDProduct("http://localhost:3000/products")
+//  const init = async ()=>{
+//     const data = await crudproduct.GetAllProduct()
+//     // console.log(data);  
+//     crudproduct.RenderProduct(data)  
+//  }
+//  init()
+export default CRUDProduct
