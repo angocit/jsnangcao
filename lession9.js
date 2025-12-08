@@ -3,7 +3,7 @@
 // CRUD.GetAllProduct().then(value=>{
 //     console.log(value);    
 // })
-import { tinhtong,tinhhieu } from "./lession8.js";
-console.log(tinhhieu(9,2));
-console.log(tinhtong(10,9));
+import * as caculator from "./lession8.js";
+console.log(caculator.tinhhieu(9,2));
+console.log(caculator.tinhtong(10,9));
 

@@ -112,3 +112,5 @@
 
 export const tinhtong = (a,b)=>a+b 
 export const tinhhieu = (a,b)=>a-b
+export const tinhtich = (a,b)=>a*b
+export const tinhthuong = (a,b)=>a/b
