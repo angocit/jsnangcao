@@ -110,7 +110,8 @@
 // //  init()
 // export default new CRUDProduct("http://localhost:3000/products")
 
-export const tinhtong = (a,b)=>a+b 
-export const tinhhieu = (a,b)=>a-b
-export const tinhtich = (a,b)=>a*b
-export const tinhthuong = (a,b)=>a/b
+const tinhtong = (a,b)=>a+b 
+ const tinhhieu = (a,b)=>a-b
+const tinhtich = (a,b)=>a*b
+const tinhthuong = (a,b)=>a/b
+export {tinhtong,tinhhieu,tinhtich,tinhthuong}
