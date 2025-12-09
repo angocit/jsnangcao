@@ -1,3 +1,5 @@
+import crud from './lession8.js'
+const crudproduct = new crud("products")
 const productfrm = document.getElementById("productfrm")
 // Lắng nghe sự kiện submit form
 productfrm.addEventListener('submit',async (e)=>{
@@ -24,11 +26,7 @@ productfrm.addEventListener('submit',async (e)=>{
     }
     // Gọi API để thêm
     try {
-        await fetch("http://localhost:3000/products",{
-        method:'POST',
-        headers:{'Content-type':'Application/json'},
-        body:JSON.stringify(data)
-        })
+        await crudproduct.Add(data)
         alert("Thêm mới thành công")
     } catch (error) {
         alert("Thêm thất bại")

@@ -95,10 +95,15 @@ class CRUD{
 }
 export default CRUD
 
-export const tinhtong = (a,b)=>a+b
-export const tinhtinhhieu = (a,b)=>a-b
-export const tinhtich = (a,b)=>a*b
-export const tinhthuong = (a,b)=>a/b
+// export const tinhtong = (a,b)=>a+b
+// export const tinhtinhhieu = (a,b)=>a-b
+// export const tinhtich = (a,b)=>a*b
+// export const tinhthuong = (a,b)=>a/b
+const tinhtong = (a,b)=>a+b
+const tinhhieu = (a,b)=>a-b
+const tinhtich = (a,b)=>a*b
+const tinhthuong = (a,b)=>a/b
+export {tinhthuong,tinhtong,tinhtich,tinhhieu}
 // const product = new CRUD("products")
 // product.GetAll().then(data=>{
 //     console.log(data);    

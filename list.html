@@ -21,15 +21,12 @@
 
         </tbody>
     </table>
-    <script>
+    <script type="module">
+        import crud from './lession8.js'
+        const crudproduct = new crud("products")
         const getAllProduct = async ()=>{
             try {
-                const res = await fetch("http://localhost:3000/products")
-                // console.log(res);
-                if (!res.ok) throw await res.json() // Ném vào catch
-                const data = await res.json()
-                // console.log(data);
-                //   truy cập vào tbody
+                const data = await crudproduct.GetAll()
                 const tbody = document.querySelector('tbody')
                 tbody.innerHTML = data.map(({id,name,image,price},index)=>{
                     return `

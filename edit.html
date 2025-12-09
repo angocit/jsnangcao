@@ -12,7 +12,9 @@
         <input type="number" placeholder="Giá" name="price"/>
         <button type="submit">Cập nhật</button>
     </form>
-    <script>
+    <script type="module">
+        import crud from './lession8.js'
+        const crudproduct = new crud("products")
         // Các bước 
         // 1. Lấy id từ url 
         // 2. Call API lấy chi tiết sản phẩm theo id 
@@ -58,12 +60,13 @@
     }
     // Gọi API để thêm
     try {
-       const res = await fetch(`http://localhost:3000/products/${id}`,{
-        method:'PUT',
-        headers:{'Content-type':'Application/json'},
-        body:JSON.stringify(data)
-        })
-        if (!res.ok) throw await res.json()
+    //    const res = await fetch(`http://localhost:3000/products/${id}`,{
+    //     method:'PUT',
+    //     headers:{'Content-type':'Application/json'},
+    //     body:JSON.stringify(data)
+    //     })
+    //     if (!res.ok) throw await res.json()
+     await crudproduct.Edit(data,id)
         window.location = "list.html" // CHuyển hướng về list
         alert("Cập nhật thành công")
     } catch (error) {

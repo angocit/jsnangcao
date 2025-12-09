@@ -1,16 +1,22 @@
 {
   "products": [
     {
-      "name": "Sản phẩm A update 2",
+      "name": "Sản phẩm A update 5555",
       "image": "https://cdn11.dienmaycholon.vn/filewebdmclnew/DMCL21/Picture//Apro/Apro_product_25081/dong-ho-treo-tu_main_946_1020.png.webp",
       "price": "100000",
       "id": 1
+    },
+    {
+      "name": "Sản pahamr import",
+      "image": "11111",
+      "price": "12232323",
+      "id": 2
     }
   ],
-  "categorys":[
+  "categorys": [
     {
-      "id":1,
-      "name":"Điện thoại"
+      "id": 1,
+      "name": "Điện thoại"
     }
   ],
   "users": []
