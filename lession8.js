@@ -93,11 +93,12 @@ class CRUD{
         }
     }
 }
-const product = new CRUD("products")
-product.GetAll().then(data=>{
-    console.log(data);    
-})
-const category = new CRUD("categorys")
-category.GetAll().then(data=>{
-    console.log(data);    
-})
+export default CRUD
+// const product = new CRUD("products")
+// product.GetAll().then(data=>{
+//     console.log(data);    
+// })
+// const category = new CRUD("categorys")
+// category.GetAll().then(data=>{
+//     console.log(data);    
+// })
