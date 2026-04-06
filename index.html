@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // Destructuring
+      // - mảng [4,9,6,5]
+      // - Object {
+      // "thuoctinh1":"Giá trị 1",
+      // "thuoctinh2":"Giá trị 2"
+      // }
+      //  Bình thường a = [6,9,10,2] muốn gán thì phải gán theo chỉ số: VD const vitri1 = a[0]
+      // Destructuring: const [vitri1] = a
+      // Ví dụ:
+      const a = [6, 9, 10, 2];
+      const [vitri1,vitri2] = a;
+      console.log(vitri1);
+      console.log(vitri2);
+
+      const person = {
+        "name":"Ngọc",
+        "age":30,
+        "address":"sfsdf"
+      }
+      const {name,age} = person
+      console.log(age);
+      
+      // Spread 
+      // Sao chép mảng hoặc đối tượng nhưng không làm thay đổi mảng, đối tượng gốc (copy nông object)
+      const b = [...a]
+     
+      b.push(12)   
+      console.log(b);  
+       console.log(a);            
+      const person2 = {...person}
+      console.log(person2);      
+      // Mở rộng mảng hoặc thuộc tính đối tượng
+      const c = [...a,12,15]
+      console.log(c);    
+      const person3 = {...person,classname:"WD2064"}  
+      console.log(person3);
+      
+    </script>
+  </body>
+</html>
