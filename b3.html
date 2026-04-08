@@ -6,6 +6,8 @@
     <title>Document</title>
 </head>
 <body>
+    <h2>Danh sách hình ảnh</h2>
+    <div id="content" class="list-picture"></div>
     <script>
         // Xử lý bất đồng bộ 
         // Nhận biết tác vụ bất đồng bộ
@@ -36,6 +38,17 @@
      }
      //Gọi hàm
      getAllPicture()
+
+     // Truy cập vào phần tử trên DOM
+// Các cách truy cập vào phần tử trên DOM
+// 1. Truy cập qua ID
+const content = document.getElementById("content")
+console.log(content);
+//2. Truy cập qua class
+const contentclass = document.getElementsByClassName("list-picture")
+console.log(contentclass[0]);
+const contentfirst = document.querySelector(".list-picture")
+console.log(contentfirst);
     </script>
 </body>
 </html>
