@@ -8,6 +8,7 @@
 <body>
     <h2>Danh sách hình ảnh</h2>
     <div id="content" class="list-picture"></div>
+    <button id="btnclick">Click here</button>
     <script>
         // Xử lý bất đồng bộ 
         // Nhận biết tác vụ bất đồng bộ
@@ -66,6 +67,16 @@ item.innerHTML = `
 // content.append(item)
 // Đưa vào làm phần tử đầu tiên của content
 content.prepend(item)
+
+// Bắt sự kiện
+//  2 Bước.
+// B1: truy cập vào phần tử muốn bắt sự kiện 
+const bt = document.getElementById("btnclick")
+// Bắt sự kiện click
+bt.addEventListener('click',()=>{
+    // Viết câu lệnh sau khi click
+    alert("Bạn vừa click")
+})
     </script>
 </body>
 </html>
