@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Hàm mũi tên
+        // Cú pháp: const Tên_Hàm = (Tham số 1, Tham số 2,...)=>{
+        // Nội dung hàm 
+        // }
+        // VD: 
+
+        const tinhtong = (a,b)=>{
+            const tong = a+b
+            return tong
+        
+        }
+        // SO sánh
+        function tinhtong_fn(a,b){
+            const tong = a+b 
+            return tong 
+        }
+        // 1 số trường hợp đặc biệt
+        // 1, Khi hàm chỉ có 1 khối lệnh => bỏ cặp {} và return
+            // const tinhtong2 = (a,b)=>{
+            //     return a+b
+            // }
+            const tinhtong2 = (a,b)=>a+b
+        // 2, khi hàm chỉ có 1 tham số => Bỏ cặp ngoặc ()
+        // const display=(title)=>{ 
+        //     console.log('Tiêu đề là: '+title);            
+        // }
+        const display=title=>console.log('Tiêu đề là: '+title)
+
+        // Xử lý mảng
+        // forEach, map, reduce, push
+        // forEach=> duyệt mảng 
+        const a = [7,8,1,20]
+        const monan = ['cơm','canh','cá','rau']
+        a.forEach(
+            (item,index)=>{
+                console.log(item);                
+            }
+        )
+        monan.forEach((item,index)=>{
+            console.log(index+'. '+item);            
+        })
+        // Lưu ý: forEach sẽ không sử dụng được cú pháp break, continue
+        // map => tạo ra mảng mới (theo logic riêng), không làm thay đổi mảng gốc
+        const b = a.map((item,index)=>{
+            // return item*2  // Các phần tử được x2
+
+
+            // Ở vị trí lẻ thì x2, vị trí chẵn thì giữ nguyên
+            if (index%2==0) return item*2
+            return item
+        })
+        console.log(a);
+        console.log('----------------------');        
+        console.log(b);
+        // Reduce=> lưu giá trị tích lũy sau mỗi vòng lặp
+        // VD tính tổng các phần tử mảng a
+        const tong = a.reduce((value,item,index)=>{
+            return value+item
+        },0)
+        console.log('Tổng mảng a là: '+tong);
+        // push => thêm phần tử vào cuối mảng 
+        a.push(100)
+        console.log(a);
+        // Sử dụng spread
+        const c = [...a,100]
+        console.log(c); 
+        // Template string: Sử dụng hàm, biến, chuỗi trong cùng 1 câu lệnh mà không cần 
+        // thực hiện nối chuỗi
+        // SỬ dụng dấu backtick `` bên trái phím 1 và bên trên phím tab: hàm, biến
+        // nằm trong cặp ${}
+        console.log(`Tổng 2 số 5+10 là: ${tinhtong(5,10)}`);
+        
+    </script>
+</body>
+</html>
