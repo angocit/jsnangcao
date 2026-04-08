@@ -45,10 +45,27 @@
 const content = document.getElementById("content")
 console.log(content);
 //2. Truy cập qua class
-const contentclass = document.getElementsByClassName("list-picture")
-console.log(contentclass[0]);
-const contentfirst = document.querySelector(".list-picture")
-console.log(contentfirst);
+// const contentclass = document.getElementsByClassName("list-picture")
+// console.log(contentclass);
+// const contentfirst = document.querySelector(".list-picture")
+// console.log(contentfirst);
+// Thao tác.
+// 1. Đặt nội dung html trong phần tử truy cập được 
+content.innerHTML = `
+<img width="200" src="https://bizweb.dktcdn.net/thumb/1024x1024/100/307/505/products/hm-960.jpg?v=1540181546593"/>
+<h3>Ngocnv34</h3>
+`
+// Tạo ra 1 phần tử dom mới
+const item = document.createElement("div")
+// Set nội dung cho phần tử mới
+item.innerHTML = `
+<img width="200" src="https://product.hstatic.net/1000309554/product/05.03.22-dong-ho-walnut-la-ma-khong-vien-size-lon-4_ea6889d96bf74c4389d445985f703928_1024x1024.jpg"/>
+<h3>Ngocnv34 2</h3>
+`
+// Đưa vào cuối của phần tử content
+// content.append(item)
+// Đưa vào làm phần tử đầu tiên của content
+content.prepend(item)
     </script>
 </body>
 </html>
