@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Danh sách công việc</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>STT</th>
+                <th>Tên công việc</th>
+                <th>Ngày thực hiện</th>
+                <th>Mô tả</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Đi học</td>
+                <td>09/04/2026</td>
+                <td>Chăm chỉ</td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+        const GetTodo = async()=>{
+            const response = await fetch(`http://localhost:3000/todos`)
+            const data = await response.json()
+            const tbd = document.querySelector('tbody')
+            let content = ``
+            console.log(data);
+            data.forEach((item,index)=>{
+                content+=`
+                    <tr>
+                    <td>${index+1}</td>
+                    <td>${item.name}</td>
+                    <td>${item.date}</td>
+                    <td>${item.description}</td>
+            </tr>
+                `
+            })     
+            tbd.innerHTML = content
+        }
+        GetTodo()
+    </script>
+</body>
+</html>
