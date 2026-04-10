@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Thêm mới công việc</h1>
+    <form id="todoform">
+        <input id="name" type="text" placeholder="Nhập tên CV"/>
+        <input id="date" type="date" placeholder="Ngày thực hiện"/>
+        <input id="description" type="text" placeholder="Mô tả"/>
+        <button>Thêm mới</button>
+    </form>
+    <script>
+        // Truy cập phần tử
+        const name = document.getElementById("name")
+        const date = document.getElementById("date")
+        const description = document.getElementById("description")
+        const todoform = document.getElementById("todoform")
+        // Bắt sự kiện
+        todoform.addEventListener('submit',async (e)=>{
+            e.preventDefault() // Ngăn trình duyệt chuyển hướng
+            // Tạo đối tượng từ dữ liệu lấy được của input
+            const todo = {
+                name: name.value,
+                date: date.value,
+                description:description.value
+            }
+            // Call API Và gửi dữ liệu
+            try {
+                await fetch(`http://localhost:3000/todos`,{
+                method:'POST',
+                headers: {'Content-type':'Application/json'},
+                body: JSON.stringify(todo)
+                })
+                window.location='todolist.html'
+                alert("Thêm mới thành công") 
+            } catch (error) {
+                console.log(error);                
+            }                       
+        })
+    </script>
+</body>
+</html>
