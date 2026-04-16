@@ -18,12 +18,6 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>1</td>
-                <td>Đi học</td>
-                <td>09/04/2026</td>
-                <td>Chăm chỉ</td>
-            </tr>
         </tbody>
     </table>
     <script>
@@ -41,6 +35,7 @@
                     <td>${item.date}</td>
                     <td>${item.description}</td>
                     <td>
+                        <a href="edit.html?id=${item.id}">Sửa</a>
                         <button onclick="handleDelete('${item.id}')">Xóa</button>
                     </td>
             </tr>
@@ -48,6 +43,7 @@
             })     
             tbd.innerHTML = content
         }
+        GetTodo()
         const handleDelete = async(id)=>{
             if (!confirm("Bạn thực sự muốn xóa?")) return;
             await fetch(`http://localhost:3000/todos/${id}`,{
@@ -55,7 +51,7 @@
             })
             alert("Xóa thành công")
         }
-        GetTodo()
+        // GetTodo()
     </script>
 </body>
 </html>

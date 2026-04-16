@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Sửa công việc</h1>
+    <form id="todoform">
+        <input id="name" type="text" placeholder="Nhập tên CV"/>
+        <input id="date" type="date" placeholder="Ngày thực hiện"/>
+        <input id="description" type="text" placeholder="Mô tả"/>
+        <button>Sửa</button>
+    </form>
+    <script>
+        // Truy cập phần tử
+        const name = document.getElementById("name")
+        const date = document.getElementById("date")
+        const description = document.getElementById("description")
+        const todoform = document.getElementById("todoform")
+        // Lấy id
+        const params = new URLSearchParams(location.search)
+        const id = params.get("id")
+        // Call API Lấy chi tiết đối tượng và đổ vào form
+        const getTodoByID = async()=>{
+            const response = await fetch(`http://localhost:3000/todos/${id}`)
+            const data = await response.json()
+            console.log(data);         
+            // Gán dữ liệu vào input
+            name.value = data.name 
+            date.value = data.date 
+            description.value = data.description 
+        }
+        getTodoByID()
+        // Bắt sự kiện
+        todoform.addEventListener('submit',async (e)=>{
+            e.preventDefault() // Ngăn trình duyệt chuyển hướng
+            // Tạo đối tượng từ dữ liệu lấy được của input
+            const todo = {
+                name: name.value,
+                date: date.value,
+                description:description.value
+            }
+            // Call API Và gửi dữ liệu để cập nhật
+            try {
+                await fetch(`http://localhost:3000/todos/${id}`,{
+                method:'PUT',
+                headers: {'Content-type':'Application/json'},
+                body: JSON.stringify(todo)
+                })
+                window.location='todolist.html'
+                alert("Cập nhật thành công") 
+            } catch (error) {
+                console.log(error);                
+            }                       
+        })
+    </script>
+</body>
+</html>

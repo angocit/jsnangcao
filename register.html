@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Đăng ký tài khoản</h1>
+    <form id="userform">
+        <input type="text" id="name" placeholder="Họ tên"/>
+        <input type="text" id="email" placeholder="Email"/>
+        <input type="password" id="password" placeholder="Mật khẩu"/>
+        <button>Đăng ký</button>
+    </form>
+    <script>
+    // Truy cập input để lấy dữ liệu nhập vào
+    const name = document.getElementById("name")
+    const email = document.getElementById("email")
+    const password = document.getElementById("password")
+    // Truy cập form để bắt sự kiện submit form
+    const userform = document.getElementById("userform")
+    // Bắt sự kiện
+    userform.addEventListener("submit",async(e)=>{
+        e.preventDefault() // Ngăn trình duyệt chuyển hướng
+        // tạo đối tượng
+        const user = {
+            name: name.value,
+            email: email.value,
+            password: password.value
+        }
+        // Gửi dữ liệu lên API
+        try {
+            const res = await fetch(`http://localhost:3000/register`,{
+            method: 'POST',
+            headers: {'Content-type':'Application/json'},
+            body: JSON.stringify(user)
+        })
+        // if (res.ok){
+        //     const result = await res.json()
+        //     console.log(result);
+        //     alert("Đăng ký thành công")
+        // }
+        // else {
+        //     throw await res.json()
+        // } 
+        if (!res.ok) throw await res.json()    
+            window.location = 'login.html'
+            alert("Đăng ký thành công")   
+        } catch (error) {
+            // console.log(error);  
+            alert(error)          
+        }
+    })
+    </script>
+</body>
+</html>

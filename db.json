@@ -4,7 +4,7 @@
       "name": "Đi học",
       "date": "2026-04-11",
       "description": "abc",
-      "id": 1
+      "id": "a3f"
     },
     {
       "name": "234234234",
@@ -13,17 +13,36 @@
       "id": 2
     },
     {
-      "name": "dsafsadf",
-      "date": "2026-04-11",
-      "description": "234234",
-      "id": 3
-    },
-    {
-      "name": "3234234",
+      "name": "Sửa công việc abc update",
       "date": "2026-04-12",
       "description": "234234324",
       "id": 4
     }
   ],
-  "users": []
+  "users": [
+    {
+      "email": "ngocnv34@fpt.edu.vn",
+      "password": "$2a$10$B0JXi3YjImZMxep/FAgKtuiCw7GWl7elRSLkHio9ihPQPJNOVGcH6",
+      "name": "Ngo Van Ngoc",
+      "id": 1
+    },
+    {
+      "email": "ngocnv342@fpt.edu.vn",
+      "password": "$2a$10$9LBwcMP3WbGOwlFqycTwkesvsYXBo3K42qWRQPZ9fiTBnK1xDwAxO",
+      "name": "sadfasdf",
+      "id": 2
+    },
+    {
+      "email": "ngocnv34@fpt.edu.vns",
+      "password": "$2a$10$48TfmohMwjwb2XhfEKXomumxSwF8L1Q0MdH4/pfPaKwWcH998WThO",
+      "name": "sdfadsfas",
+      "id": 3
+    },
+    {
+      "email": "angocit@gmail.com",
+      "password": "$2a$10$qGpiwC2IDkpSglYOoSjfZeeFiwJ/WEc9FSH9EDliI3zfwQFXQG8Jy",
+      "name": "fsfadsf",
+      "id": 4
+    }
+  ]
 }
