@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Template string: 
+        // Cho phép viết biến, hàm, chuỗi trên cùng 1 câu lệnh
+        // Cú pháp: Sử dụng dấu backtick (trái phím 1, trên tab ``)
+        // Biến, hàm được đặt trong ${}
+        const a = 10;
+        console.log(`Số tự nhiên là: ${a}`);   
+        // 2. Destructuring: trích xuất giá trị từ phần tử mảng
+        // hoặc thuộc tính của đối tượng và gán vào biến riêng lẻ
+        // - Mảng
+        const arr_a = [7,9,5,10,30] 
+        const [item1,item2] = arr_a  // Cú pháp Des đối với mảng
+        console.log(item1); // 7
+        console.log(item2); // 9
+        // Bỏ qua phần tử dùng dấu ,
+        // VD: 
+        const [,i1,i2] = arr_a
+        console.log(i1); // 9
+        console.log(i2); // 5       
+        // - Object (đối tượng) 
+        const person = {
+            name: "Ngocnv34",
+            age:30,
+            address: "Thái Nguyên"
+        }
+        const {name,age} = person // Cú pháp đối với object(sử dụng cặp {})
+        console.log(name); // Ngocnv34
+        console.log(age); // 30        
+        // Lưu ý: 1. Tên biến trùng tên thuộc tính
+                //2. Không phụ thuộc vào vị trí của biến
+                //3. Muốn tên biến khác với tên thuộc tính thì sử dụng cú pháp sau:
+        const {name:ten,age:tuoi} = person
+        console.log(ten); // Ngocnv34
+        console.log(tuoi); // 30
+         // Sử dụng destructuring trong tham số của hàm
+        // VD:  
+        // 1. Cách viết thông thường 
+        function Display(person){
+            console.log(`Họ và tên là: ${person.name}\n`);
+            console.log(`Tuổi là: ${person.age}`);            
+        }
+        Display(person)
+        // 2. Các viết đối với Destructuring
+        function Display2({name,age}){
+            console.log(`Họ và tên là: ${name}\n`);
+            console.log(`Tuổi là: ${age}`);
+        }
+        Display2(person)
+    </script>
+</body>
+</html>

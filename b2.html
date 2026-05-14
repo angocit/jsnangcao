@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Spread: Sao chép và mở rộng phần tử của mảng hoặc thuộc tính của đối tượng mà không
+        // làm thay đổi mảng gốc (đối tượng ...)
+        // - Mảng 
+        const a = [6,8,7,9]
+        // Yêu cầu: Tạo ra mảng b bao gồm tất cả các phần tử của mảng a      
+        
+        const b1 = a
+        b1.push(30) 
+        // Sử dụng spread
+        const b2 = [...a]
+        b2.push(90)
+        console.log('Mảng a',a);
+        console.log('Mảng b1',b1); // [6,8,7,9]
+        console.log('mảng b2',b2);
+        // Mở rộng phần tử mảng 
+        const c = [5,...a,1,66,22]
+        console.log('Mảng c',c);      
+        // - Đối tượng (Object)
+        const person = {
+            name:"Ngocnv34",
+            age:35,
+            address:"Thái Nguyên"
+        }  
+        // Sao chép 
+        const person2 = {...person}
+        console.log('Obj gốc',person);
+        console.log('Obj sao chép',person2);        
+        // Mở rộng
+        const person3 = {...person,phone:"0988888888"}
+        console.log(person3);
+        // Thay đổi giá trị của thuộc tính 
+        const person4 = {...person,age:person.age+1}   
+        console.log(person4);             
+        // Ứng dụng:
+        const students = [
+            {
+                name: "SV1",
+                score:9,
+                address: 'Hà Nội'
+            },
+            {
+                name: "SV2",
+                score:5,
+                address: 'Thái Nguyên'
+            },
+            {
+                name: "SV3",
+                score:4,
+                address: 'Hà Nội'
+            },
+            {
+                name: "SV4",
+                score:6,
+                address: 'Thái Nguyên'
+            }
+        ]
+        // Yêu cầu: Hiển thị danh sách sinh viên trong đó những sinh viên
+        // quê ở THái Nguyên sẽ được + 1 điểm 
+        // Cách làm 
+        console.log(`Danh sách sinh viên:`);
+        
+        for (item of students){
+            if (item.address == 'Thái Nguyên'){
+                const newstudent = {...item,score:item.score+1}
+                console.log(newstudent);                
+            }
+            else {
+                console.log(item);                
+            }
+        }
+    </script>
+</body>
+</html>
