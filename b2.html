@@ -77,6 +77,16 @@
                 console.log(item);                
             }
         }
+        // Rest parameter
+        function tinhtong(...params){
+            let tong = 0;
+            for (item of params){
+                tong+=item
+            }
+            return tong
+        }
+        console.log(tinhtong(6,8,8,20));
+        
     </script>
 </body>
 </html>
