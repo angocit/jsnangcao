@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" placeholder="Nhập địa chỉ" id="address"/>
+    <button onclick="add()">Thêm mới</button>
+    <script>
+        // Falsy value: 0,'',false,null,undefined,NaN
+        // Short Circuiting (AND / OR)
+        // Biểu thức AND &&
+        // Cách thức hoạt động: Duyệt từ trái qua phải, nếu gặp
+        // giá trị không phải là falsy value thì bỏ qua duyệt phần tử
+        // tiếp theo. Nếu gặp falsy value thì dừng. Nếu tất cả đều không 
+        // phải là falsy value thì sẽ lấy giá trị cuối cùng 
+        const value = "Ngoc"&&0&&""&&"An"
+        console.log(value);  
+        // Ứng dụng: Thực hiện công việc nào đó khi cần kiểm tra nhiều điều
+        // kiện liên tiếp nhau 
+        // VD: Chỉ hiển thị tên khi name không để trống và > 6 kí tự
+        const name = 'ngo van ngoc';        
+        name&&name.length>6&&console.log(name);   
+        // Biểu thức OR  || 
+        // Cách thwucs hoạt động: Duyệt từ trái qua phải. Nếu gặp giá trị là 
+        // falsy value thì bỏ qua, duyệt phần tử tiếp theo, cho đến khi gặp 
+        // giá trị không là falsy value (truthy) thì dừng lại và nhận giá trị đó. 
+        // Nếu tất cả đều là falsy value thì nhận giá trị cuối cùng 
+        const orvalue = ""||0||"Ngoc"||null||undefined
+        // ứng dụng: Đặt giá trị mặc định cho biến 
+        // VD: ở ô input. Nếu người dùng nhập dữ liệu thì lấy giá trị người dùng nhập
+        // nếu người dùng không nhập thì đặt địa chỉ là "Hà Nội"
+        function add(){
+            // Lấy giá trị từ input
+            const address = document.getElementById("address").value
+            const data = address||"Hà Nội"
+            console.log(data);            
+        }
+    </script>
+</body>
+</html>
