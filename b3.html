@@ -38,6 +38,41 @@
             const data = address||"Hà Nội"
             console.log(data);            
         }
+        // Nullish ??
+        // Cách thức hoạt động: Như biểu thức OR, chỉ khác là thay vì 
+        // so sánh với falsy value
+        // thì biểu thức ?? chỉ so sánh với null và undefined
+        const nullishvalue = null??undefined??"Ngoc"??null??undefined
+        console.log(nullishvalue);
+        // Ứng dụng: Đặt giá trị mặc định cho biến 
+        // Optional Chaining sử dụng ?.
+        const students = [
+            {
+                name:"SV1",
+                age:20,
+                address: {
+                    province: "THái Nguyên",
+                    ward: "Vô Tranh"
+                }
+            },
+            {
+                name:"SV2",
+                age:20
+            },
+            {
+                name:"SV1",
+                age:20,
+                address: {
+                    province: "Hà Nội",
+                    ward: "Phương Canh"
+                }
+            }
+        ]
+        // Hiển thị danh sách sinh viên
+        for (student of students){
+            console.log(`Họ tên: ${student.name}. Tuổi: ${student.age}. 
+            Quê: ${student?.address?.province??'KXĐ'} `);            
+        }
     </script>
 </body>
 </html>
