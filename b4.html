@@ -90,6 +90,20 @@
         console.log(map.has("age"));
         // Số lượng cặp key-value: map.size
         console.log(map.size);
+        // ứng dụng: 1. Truy cập nhanh với độ phức tạp là O(1)
+        // - Đếm số lượng từ xuất hiện trong câu
+        const str = "hôm nay là thứ 2, trời hôm nay rất đẹp, hôm"
+        const strmap = new Map()
+        for (item of str.split(" ")){
+            if (strmap.has(item)){
+                strmap.set(item,strmap.get(item)+1)
+            }
+            else {
+                strmap.set(item,1)
+            }
+        }
+        const kw = "hôm"
+        console.log(`Số lượng xuất hiện từ ${kw}: ${strmap.get(kw)}`);
         
     </script>
 </body>
