@@ -44,30 +44,52 @@
     //     console.log(setarr);
         // Ứng dụng: Lọc trùng 
         // VD: 
-        const a = [6,45,2,34,6,65,2,34,45,64,1,3,6,8]
-        // Nếu không dùng set 
-        function checkItem(value,arr){
-            let check = false
-            for (item of arr){
-                if (value===item){
-                    check = true 
-                    break;
-                }
-            }
-            return check
-        }
-        const temp = []        
-        for (i of a){
-            if (!checkItem(i,temp)){
-                console.log(i);                
-                temp.push(i)
-            }
-        }
-        console.log(temp);
-        // DÙng Set
-        const set = new Set(a)
-        const filter = [...set]
-        console.log(filter);
+        // const a = [6,45,2,34,6,65,2,34,45,64,1,3,6,8]
+        // // Nếu không dùng set 
+        // function checkItem(value,arr){
+        //     let check = false
+        //     for (item of arr){
+        //         if (value===item){
+        //             check = true 
+        //             break;
+        //         }
+        //     }
+        //     return check
+        // }
+        // const temp = []        
+        // for (i of a){
+        //     if (!checkItem(i,temp)){
+        //         console.log(i);                
+        //         temp.push(i)
+        //     }
+        // }
+        // console.log(temp);
+        // // DÙng Set
+        // const set = new Set(a)
+        // const filter = [...set]
+        // console.log(filter);
+        // Map: Lưu trữ giá trị theo cặp key-value
+        // Cú pháp 
+        const map = new Map()
+        // Các phương thức và thuộc tính của Map 
+        // - Thêm cặp giá trị map.set(key, value)
+        map.set("name","Ngọc")
+        map.set("age",30)
+        console.log(map); 
+        // - Truy cập giá trị trong map: map.get(key) 
+        // => trả về undefined nếu không tồn tại key
+        const name =  map.get("name")  
+        console.log(name);         
+        // Xóa giá trị (cặp key-value) trong map: map.delete(key)
+        // map.delete("age")   
+        // console.log(map);
+        // Xóa hết: map.clear()
+        // map.clear()
+        console.log(map);
+        // Kiểm tra key có trong map hay không: map.has(key) => boolean
+        console.log(map.has("age"));
+        // Số lượng cặp key-value: map.size
+        console.log(map.size);
         
     </script>
 </body>
