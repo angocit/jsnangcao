@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //1. Hàm mũi tên Arrow Function
+        // Cú pháp
+        // const Tên_hàm = (tham_số_1,Tham_số_2,...)=>{
+        //     // Todo
+        // }
+        // Ví dụ: 
+        const tinhtong = (a,b)=>{
+            return a+b
+        }
+        console.log(tinhtong(6,9));
+        // 1 số trường hợp đặc biệt
+        // - Trong hàm chỉ có 1 khối lệnh => bỏ cặp {} và return 
+        const tinhtong2 = (a,b)=>a+b 
+        // - Chỉ có 1 tham số => bỏ cặp ()
+        const display = a=>console.log(`Tham số là ${a}`);
+        //2. Tham số mặc định trong hàm Default Parameter: Hàm có tham số mặc định
+        // thì khi gọi hàm, nếu truyền đối số tương ứng thì đối sẽ nhận giá trị truyền vào
+        // còn nếu không truyền đối số thì sẽ lấy giá trị mặc định khi khai báo hàm 
+    //    Ví dụ : 
+        const tinhtong3 = (a,b=5)=>a+b 
+        const tinhhieu = (a,b)=>a-b
+        console.log(tinhtong3(8,9)); // Output: 17
+        console.log(tinhtong3(8)); // Output: 13
+        // Lưu ý: Tham số mặc định phải nằm sau tham số thông thường cuối cùng
+        // 3. Hàm Callback: 
+        const display2 = (a,b,callbackfn)=>console.log(`Kết quả 2 số ${a} và ${b} là 
+        ${callbackfn(a,b)}`);
+        // Gọi hàm display2.
+        display2(5,8,tinhhieu); // Output -3
+        display2(8,9,tinhtong3); // Output 17
+        // Gọi hàm ngay lập tức IIFE => Hàm sẽ được thực thi ngay khi định nghĩa xong
+        // VD: 
+        ((a,b)=>console.log(`Tổng 2 số ${a}+${b}=${a+b}`))(9,10);
+        ((a,b)=>console.log(`Tổng 2 số ${a}-${b}=${a-b}`))(20,10)
+
+        // 1 số phương thức xử lý mảng 
+        // map: Tạo ra 1 mảng mới với các phần tử được xác định từ phần tử mảng gốc mà
+        // không làm thay đổi mảng gốc 
+        // cú pháp: 
+        // const newArr = Arr.map((item,index,array)=>{
+        //     // todo
+        //     return value 
+        // })
+        // Trong đó:  
+        // item là phần tử được duyệt, 
+        // index là chỉ số mảng của phần tử
+        // array là mảng được duyệt
+        const a = [6,3,8,10,9]
+        // Yêu cầu: tạo ra 1 mảng b với các phần tử có giá trị là phần tử mảng a*2
+        const b = a.map(item=>item*2) 
+        // Viết đày đủ
+        const b2 = a.map((item,index,array)=>{
+            return item*2
+        })
+        const b3 = a.map(item=>{
+            if (item%2==0) return item
+            return item*2
+        })
+        console.log(a);        
+        console.log(b);   
+        console.log(b3); // Output: []
+             
+    </script>
+</body>
+</html>
