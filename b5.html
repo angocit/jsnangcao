@@ -67,8 +67,58 @@
         })
         console.log(a);        
         console.log(b);   
-        console.log(b3); // Output: []
-             
+        console.log(b3); // Output: [6,6,8,10,18]
+        // Duyệt mảng bằng forEach
+        // cú pháp: arr.forEach((item,index,array)=>{
+                // Todo 
+        // })
+        // Trong đó: item là phần tử được duyệt 
+        // index (option): Chỉ số mảng 
+        // array: Mảng được duyệt
+        // VD: 
+        const monan = ["Cơm","Rau","Cá","Cua"]
+        console.log('Thực đơn hôm nay là:');
+        monan.forEach((item,index)=>{
+            console.log(`${index+1}. ${item}`);            
+        })
+        // Lưu ý: forEach sẽ duyệt hết mảng: Không thể thoát khỏi
+        // vòng lặp hay bỏ qua phần tử
+        // bằng break, continue như trong duyệt for thông thường 
+
+        // Filter (lọc): Tạo ra 1 mảng mới với các phần tử từ mảng gốc được xác định dựa 
+        // theo điều kiện nào đó
+        // Cú pháp: array.filter((item,index,array)=>{
+        // return điều_kiện
+        // }) 
+        //  Trong đó: item: phần tử được duyệt, index là chỉ số mảng, array: mảng được duyệt
+        // Ví dụ: lấy ra các phần tử là số chẵn của mảng a 
+        const sochan = a.filter((item,index)=>{
+            return item%2==0  // Return điều kiện
+        }) 
+        // Viết ngắn gọn
+        const sochan2 = a.filter(item=>item%2==0)
+        // reduce: Lưu trữ giá trị tích lũy sau mỗi lần duyệt phần tử mảng
+        // Cú pháp: 
+        // arr.reduce((value,item,index)=>{
+        //     // todo 
+        // },initvalue)
+        // trong đó: value: biên lưu trữ giá trị
+        //         item: phần tử được duyệt 
+        //         index: chỉ số phần tử trong mảng 
+        //         initvalue: Giá trị khởi tạo
+        // Ví dụ: Tính tổng tất cả các phần tử trong mảng a   
+ 
+        console.log(a);     // [6,3,8,10,9]   
+        const tong = a.reduce((value,item)=>{
+            return value+item
+        },0)
+        console.log(tong); // 36
+        // TH2: Trong mảng a. Nếu phần tử chẵn thì + còn phần tử lẻ thì -
+        const congtru = a.reduce((value,item)=>{
+            if (item%2==0) return value+item 
+            return value-item
+        },0)
+        console.log(congtru);        
     </script>
 </body>
 </html>
