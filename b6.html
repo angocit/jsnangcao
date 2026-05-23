@@ -28,7 +28,33 @@
         console.log(span); // Trả về danh sách    
         // Truy cập theo attribute name 
         const address = document.getElementsByName("address")
-        console.log(address); // Trả về danh sách                 
+        console.log(address); // Trả về danh sách        
+        // Sử querySelector và querySelectorAll có thể thay thế tất cả các phương thức
+        // bên trên 
+        // -- Các thức hoạt động: Cả 2 có cú pháp giống nhau
+        // - querySelector: Trả về phần tử duy nhất 
+        // (phần tử đầu tiên nó gặp thỏa mãn điều kiện)
+        //  - querySelectorAll: trả về danh sách phần tử thỏa mãn điều kiện
+        // VD: Truy cập phần tử theo id : 
+        const content2 = document.querySelector("#content") // tương đương getElementById
+        console.log(content2); 
+        // -Truy cập theo class
+        const item1 = document.querySelector(".item") 
+        // Trả về phần tử đầu tiên có class là item
+        const item2 = document.querySelectorAll(".item") 
+        // Trả về danh sách các phần tử có class là item
+        console.log(item2);
+        // - Truy cập theo tên thẻ tagname
+        const span1 = document.querySelector("span") 
+        console.log(span1);     // Trả về phần tử span đầu tiên
+        const span2 = document.querySelectorAll("span")         
+        console.log(span2);   // Trả về sanh sách các phần tử span
+        // Truy cập theo attribute
+        const address2 = document.querySelector("[name=address]")
+        console.log(address2);
+        // hoặc 
+        const address3 = document.querySelector("input[name=address]")
+        console.log(address3);        
     </script>
 </body>
 </html>
