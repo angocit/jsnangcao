@@ -13,6 +13,7 @@
         <span class="item">4</span>
         <span class="item">5</span>
         <span class="item">6</span>
+        <input type="text" placeholder="Nhập địa chỉ" name="address"/>
     </div>
     <script>
 // Truy cập phần tử DOM
@@ -21,7 +22,13 @@
         console.log(content);        // Trả về phần tử duy nhất
         // - Truy cập theo class
         const item = document.getElementsByClassName("item")
-        console.log(item); // Trả về danh sách        
+        console.log(item); // Trả về danh sách    
+        // Truy cập theo tên thẻ tagname
+        const span = document.getElementsByTagName("span")
+        console.log(span); // Trả về danh sách    
+        // Truy cập theo attribute name 
+        const address = document.getElementsByName("address")
+        console.log(address); // Trả về danh sách                 
     </script>
 </body>
 </html>
