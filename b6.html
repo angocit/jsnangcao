@@ -10,6 +10,7 @@
         <span class="item">1</span>
         <span class="item">2</span>
         <span class="item">3</span>
+        <h1 id="title">Xin chào WD21202</h1>
         <span class="item">4</span>
         <span class="item">5</span>
         <span class="item">6</span>
@@ -55,6 +56,11 @@
         // hoặc 
         const address3 = document.querySelector("input[name=address]")
         console.log(address3);        
+        // Truy cập qua phương thức, thuộc tính của phần tử khác
+        const h1 = document.getElementById("title")
+        //  Lấy phần tử cha
+        const content3 = h1.parentNode
+        console.log(content3);        
     </script>
 </body>
 </html>
