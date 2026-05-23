@@ -60,7 +60,17 @@
         const h1 = document.getElementById("title")
         //  Lấy phần tử cha
         const content3 = h1.parentNode
-        console.log(content3);        
+        console.log(content3);  
+        // lấy các phần tử con
+        const listitem = content.children
+        console.log(listitem);
+        // Lấy phần tử phía trước h1
+        const prev = h1.previousElementSibling
+        console.log(prev);
+        // Lấy phần tử phía sau h1
+        const next = h1.nextElementSibling
+        console.log(next);
+        
     </script>
 </body>
 </html>
