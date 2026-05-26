@@ -15,6 +15,7 @@
         <span class="item">5</span>
         <span class="item">6</span>
         <input type="text" placeholder="Nhập địa chỉ" name="address"/>
+        <button id="bt-event">Nút sự kiện</button>
     </div>
     <script>
 // Truy cập phần tử DOM
@@ -73,6 +74,54 @@
         // Tip: có thể sử dụng cú pháp console.dir để xem các phương thức và thuộc
         // tính của phần tử 
         console.dir(content)
+        // Tạo mới phần tử: createElement("Tên_thẻ")
+        const div = document.createElement("div")
+        console.dir(div); 
+        // Tạo nội dung html cho thẻ: innerHTML
+        div.innerHTML = `<h3>Xin chào WD21202</h3>`     
+        // Thiết lập class, id, attribute cho thẻ
+        div.setAttribute('class',"item") 
+        div.setAttribute('id',"new-content") 
+        div.setAttribute('data-value',"10") 
+        console.log(div);         
+        // Lấy dữ liệu từ attribute
+        // getAttribute 
+         const data = div.getAttribute("data-value")
+         console.log(data);  
+        //  hoặc lấy theo thuộc tính
+        const class_name = div.className
+        console.log(class_name);
+        const id = div.id 
+        console.log(id);
+        // Đối với phần tử truy cập được cũng làm tương tự để thiết lập và lấy thông tin
+        // qua attribute, thuộc tính như trên 
+        // VD : 
+        next.innerHTML =`Số 4 update`
+        // CHèn phần tử này vào trong 1 phần tử khác
+        //  1. Chèn làm phần tử đầu tiên  prepend
+        // VD:/ Chèn div vừa tạo vào trong content 
+        content.prepend(div)
+        // 2. Chèn làm phần tử cuối cùng append
+        // VD: Chèn phần tử vừa tọa làm phần tử cuối cùng 
+        content.append(div)
+        //  BẮT SỰ KIỆN
+        // - Sử dụng addEventListener('Tên_Sự_kiện','Hàm Callback_xử_lý_sự_kiện')
+        // VD: xử lý sự kiện của button trong DOM
+        // Truy cập button
+        const button = document.querySelector("#bt-event")
+        // Xem tên sự kiện. sử dụng console.dir
+        console.dir(button)
+        // Click
+        button.addEventListener('click',()=>{
+            alert("Bạn vừa click")
+        })
+        // Di chuột vào
+        button.addEventListener('mouseenter',()=>{
+            console.log('Bạn vừa di chuột vào');            
+        })
+         button.addEventListener('mouseleave',()=>{
+            console.log('Bạn vừa di chuột ra');            
+        })
     </script>
 </body>
 </html>
