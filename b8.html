@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // Xử lý bất đồng bộ
+      // 3 Cách để xử lý bất đồng bộ
+      // 1. Callback để xử lý bất đồng bộ
+    //   setTimeout(() => {
+    //     console.log(1);
+    //     setTimeout(() => {
+    //       console.log(2);
+    //       setTimeout(() => {
+    //         console.log(3);
+    //         setTimeout(() => {
+    //           console.log(4);
+    //         }, 400);
+    //       }, 500);
+    //     }, 100);
+    //   }, 300);
+    //   2. Sử dụng Promise  
+    //  const promise = new Promise((resolve, reject)=>{
+    //     // todoo
+    //     resolve(value) // Nếu hoàn thành
+    //     reject(value) // Nếu có lỗi hoặc không hợp lệ
+    //  })
+     // Để lấy kết quả trả về:
+    //  - promise resolve: sử dụng then để lấy kết quả trả về 
+    //  - promise reject: sử dụng catch để lấy kết quả 
+    // VÍ dụ 
+    // const promise = new Promise((resolve,reject)=>{
+    //     setTimeout(()=>{
+    //         resolve(1)
+    //     },500)
+    // })
+    // promise.then((value)=>{
+    //     console.log(value);   
+    //     return new Promise((resolve,reject)=>{
+    //         setTimeout(()=>{
+    //             resolve(2)
+    //         },100)
+    //     })     
+    // }).then(value=>console.log(value))
+    // Ví dụ tác vụ call API 
+    const response = fetch("https://picsum.photos/v2/list")
+    // console.log(response); 
+    response.then(value=>{
+        console.log(value);  
+        // CHuyển repsonse sang json
+        const data = value.json()
+        console.log(data); 
+        data.then(result=>{
+            console.log(result);            
+        })             
+    })   
+    </script>
+  </body>
+</html>
