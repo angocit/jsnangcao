@@ -51,12 +51,30 @@
     response.then(value=>{
         console.log(value);  
         // CHuyển repsonse sang json
-        const data = value.json()
-        console.log(data); 
-        data.then(result=>{
-            console.log(result);            
-        })             
-    })   
+        // const data = value.json()
+        // console.log(data); 
+          return value.json()          
+    }).then(result=>{
+        console.log(result);            
+    }) 
+    // 3. Sử dụng hàm bất đồng bộ async/await 
+    // cú pháp: 
+    // - hàm thông thường 
+    // async function Tên_hàm(){
+    //     await promise 
+    // }
+    // // - Arrow function 
+    // const tên_hàm = async()=>{
+    //     await promise 
+    // }
+    // Sử dụng try/catch để bắt lỗi
+    // Ví dụ với trường hợp call API bên trên
+    const GetData = async ()=>{
+        const response = await fetch("https://picsum.photos/v2/list")
+        const data = await response.json() // Chueyenr sang json
+        console.log('Dữ liệu xử lý bằng async/await',data);        
+    }
+    GetData()
     </script>
   </body>
 </html>
