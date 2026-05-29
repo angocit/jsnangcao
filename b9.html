@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Spread/Rest: Sử dụng dấu ...
+        // Spread: Sao chép và mở rộng phần tử của mảng hoặc thuộc tính của đối tượng
+        // - Mảng 
+        // Cú pháp: const newArr = [...arr]
+        // VD: 
+        const a = [6,8,10,2,0]
+        const b = [...a]
+        const c = a
+        // c.push(200)
+        b.push(9)
+        console.log('mang a',a);        
+        console.log('mang b',b); 
+        console.log('mang c',c);        
+        // Đặc điểm: không làm thay đổi mảng gốc
+        // Mở rộng
+        const d = [...a,9,10,4]
+        console.log(d);       
+        const d1 = [9,3,...a]
+        console.log(d1);         
+        // kết hợp nhiều mảng 
+        const e = [...a,...d]
+        console.log(e);    
+        // Đối tượng (object)
+        // cú pháp: const newobj = {...obj}  
+        // Ví dụ: 
+        const person = {
+            name:"Ngọc",
+            age:30
+        } 
+        const person2 = {...person}
+        console.log(person2);
+        // mở rộng 
+        const person3 = {...person,address:"Thái Nguyên"}
+        console.log(person3);     
+        // Gán lại giá trị cho thuộc tính 
+        const person4 = {...person3,age:person3.age+1}    
+        console.log(person4);
+        // Rest parammeter
+        // thông thường 
+        // const tinhtong = (a,b,c)=>a+b+c  
+        const tinhtong = (...a)=>{
+            // a là 1 mảng 
+            // 2 cách để tính tổng 
+            // Cách 1: duyệt mảng cộng dồn
+            // let tong = 0
+            // for (item of a){
+            //     tong +=item
+            // }
+            // return tong 
+            // cách 2
+            return a.reduce((total,item)=>total+item)
+        }         
+        console.log(tinhtong(9,10,5,10));
+               
+    </script>
+</body>
+</html>
