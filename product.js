@@ -10,7 +10,7 @@ const GetAllProduct = async ()=>{
         const tbody = document.getElementById("product-table-body")
         let content = ''
         // Duyệt mảng data
-        data.forEach((item,index)=>{
+        data.forEach(({id,name,inStock,category,price,status},index)=>{
             content+=`
                 <tr>
                    <td>
@@ -19,15 +19,15 @@ const GetAllProduct = async ()=>{
                     </div>
                    </td> 
                    <td>
-                        ${item.name}
+                        ${name}
                    </td> 
-                   <td>${item.category}</td> 
-                   <td>${item.price}</td> 
-                   <td>${item.inStock}</td> 
-                   <td>${item.status}</td> 
+                   <td>${category}</td> 
+                   <td>${price}</td> 
+                   <td>${inStock}</td> 
+                   <td>${status}</td> 
                    <td>
-                        <button>Sửa</button>
-                        <button>Xóa</button>
+                        <button class="bg-blue-500 rounded text-white px-4 py-1">Sửa</button>
+                        <button onclick="handleDelete('${id}')" class="bg-red-500 rounded text-white px-4 py-1">Xóa</button>
                    </td> 
                 </tr>
             `
@@ -38,3 +38,15 @@ const GetAllProduct = async ()=>{
     }
 }
 GetAllProduct()
+const handleDelete = async (id)=>{
+    if (!confirm("Bạn thực sự muốn xóa?")) return
+    try {
+        const res = await fetch(`http://localhost:3000/products/${id}`,{
+            method:'DELETE'
+        })
+        if (!res.ok) throw "Xóa thất bại"
+        alert("Xóa thành công")
+    } catch (error) {
+        alert(error)
+    }
+}
