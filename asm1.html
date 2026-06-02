@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="todo-form">
+  <input id="title" placeholder="Tên công việc" />
+  <input id="priority" placeholder="Mức độ ưu tiên (số)" />
+  <button type="submit">Thêm</button>
+</div>
+<div id="output"></div>
+<div id="output2"></div>
+<script>
+    const title = document.getElementById("title")
+    const priority = document.getElementById("priority")
+    const output = document.getElementById("output")
+    const output2 = document.getElementById("output2")
+    const button = document.querySelector("button")
+    const todos = []
+    button.addEventListener("click",()=>{
+        const todo = {
+            title:title.value,
+            priority:priority.value
+        }
+        // todos.push(todo)
+        handleTodo(todo,addTodo)
+        const newtodos = [...todos]
+        const listtitle = newtodos.map(item=>item.title)
+        const set = new Set(listtitle)
+        const priority5 = newtodos.filter(item=>item.priority>5)
+        console.log(priority5);  
+        const total = newtodos.reduce((count,item)=>(item.priority>=1?count+1:count),0)
+        console.log(total);              
+        // newtodos.forEach(item=>set.add(item.title))
+        newtodos.forEach(item=>item.priority>1&&console.log(item))
+        let content = ``
+        for (let title of set){
+            content+=`${title}<br/>`
+        }
+        output2.innerHTML=content
+        output.innerHTML = `${todo.title} - ưu tiên: ${todo.priority}`
+        const map = new Map()
+        newtodos.forEach(item=>{
+            map.set(item.title,item.priority)
+        })
+        console.log(map);        
+    })
+    const handleTodo = (todo, callback)=>{
+        callback(todo)
+    } 
+    const addTodo = (todo)=>{
+        todos.push(todo)
+    }
+</script>
+</body>
+</html>

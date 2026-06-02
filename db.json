@@ -1,4 +1,65 @@
 {
-    "products":[],
-    "users":[]
+  "products": [
+    {
+      "id": 1,
+      "name": "Tai nghe Bluetooth Sony WH-1000XM5",
+      "image": "https://example.com/images/sony-wh1000xm5.jpg",
+      "price": 8990000
+    },
+    {
+      "id": 2,
+      "name": "Bàn phím cơ Keychron K2",
+      "image": "https://example.com/images/keychron-k2.jpg",
+      "price": 2190000
+    },
+    {
+      "id": 3,
+      "name": "Chuột Logitech MX Master 3S",
+      "image": "https://example.com/images/logitech-mx-master-3s.jpg",
+      "price": 2490000
+    },
+    {
+      "id": 4,
+      "name": "Màn hình Dell UltraSharp 27",
+      "image": "https://example.com/images/dell-ultrasharp-27.jpg",
+      "price": 7490000
+    },
+    {
+      "id": 5,
+      "name": "Laptop HP 15s",
+      "image": "https://example.com/images/hp-15s.jpg",
+      "price": 15990000
+    },
+    {
+      "id": 6,
+      "name": "Điện thoại iPhone 15",
+      "image": "https://example.com/images/iphone-15.jpg",
+      "price": 22990000
+    },
+    {
+      "id": 7,
+      "name": "Loa JBL Charge 5",
+      "image": "https://example.com/images/jbl-charge-5.jpg",
+      "price": 3490000
+    },
+    {
+      "id": 8,
+      "name": "Đồng hồ thông minh Samsung Galaxy Watch 6",
+      "image": "https://example.com/images/galaxy-watch-6.jpg",
+      "price": 5990000
+    },
+    {
+      "name": "12312312312",
+      "image": "https://cdn11.dienmaycholon.vn/filewebdmclnew/DMCL21/Picture//Apro/Apro_product_25081/dong-ho-treo-tu_main_946_1020.png.webp",
+      "price": "1000000",
+      "id": 9
+    },
+    {
+      "name": "Sản phẩm A update",
+      "image": "2342342",
+      "price": "2222",
+      "id": 10
+    }
+  ],
+  "users": []
 }
