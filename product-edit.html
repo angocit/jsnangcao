@@ -22,7 +22,7 @@
                 <label class="block text-sm font-medium text-gray-700 mb-1">Giá tiền</label>
                 <input type="number" id="price" placeholder="Giá tiền" class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"/>
             </div>
-            <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2.5 rounded-lg transition">Thêm mới</button>
+            <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2.5 rounded-lg transition">Cập nhật</button>
         </form>
     </div>
     <script>
@@ -32,6 +32,27 @@
         const name = document.getElementById("name")
         const image = document.getElementById("image")
         const price = document.getElementById("price")
+
+        // Lấy id từ URL
+        const param = new URLSearchParams(location.search)
+        const id = param.get("id")
+        console.log(id);  
+        // Call API lấy chi tiết sản  phẩm theo id sau đó fill vào ô input
+        const getProductByid = async ()=>{
+            try {
+                const res=await fetch(`http://localhost:3000/products/${id}`)
+                if (!res.ok) throw await res.json()
+                const product = await res.json()
+                // Fill data vào ô input
+                name.value = product.name
+                image.value = product.image 
+                price.value = product.price
+            } catch (error) {
+                alert("Lỗi. Không có thông tin sản phẩm")
+            }
+        }
+        // Gọi hàm
+        getProductByid()
         // Bắt sự kiện submit
         productform.addEventListener("submit",async (e)=>{
             e.preventDefault() // Ngăn trình duyệt chuyển hướng
@@ -43,17 +64,17 @@
             }
             try {
                 // Call API 
-                const res = await fetch(`http://localhost:3000/products`,{
-                    method:'POST',
+                const res = await fetch(`http://localhost:3000/products/${id}`,{
+                    method:'PUT',
                     headers: {'Content-type':'application/json'},
                     body: JSON.stringify(product)
                 })
                 if (!res.ok) throw await res.json()
                 window.location = "products.html"
-                alert("Thêm mới thành công")            
+                alert("Cập nhật thành công")            
             } catch (error) {
                 console.log(error);
-                alert("Thêm mới thất bại")
+                alert("Cập nhật thất bại")
             }
         })
     </script>

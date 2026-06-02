@@ -1,16 +1,16 @@
 {
   "products": [
     {
-      "id": 1,
-      "name": "Tai nghe Bluetooth Sony WH-1000XM5",
+      "name": "Tai nghe Bluetooth Sony WH-1000XM5 fgdfgd",
       "image": "https://example.com/images/sony-wh1000xm5.jpg",
-      "price": 8990000
+      "price": "8990000",
+      "id": 1
     },
     {
-      "id": 2,
-      "name": "Bàn phím cơ Keychron K2",
+      "name": "Bàn phím cơ Keychron K2 update",
       "image": "https://example.com/images/keychron-k2.jpg",
-      "price": 2190000
+      "price": "2190000",
+      "id": 2
     },
     {
       "id": 3,
@@ -25,10 +25,10 @@
       "price": 7490000
     },
     {
-      "id": 5,
-      "name": "Laptop HP 15s",
+      "name": "Laptop HP 15s 6666",
       "image": "https://example.com/images/hp-15s.jpg",
-      "price": 15990000
+      "price": "15990000",
+      "id": 5
     },
     {
       "id": 6,
