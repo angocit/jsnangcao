@@ -61,5 +61,18 @@
       "id": 10
     }
   ],
-  "users": []
+  "users": [
+    {
+      "email": "ngocnv34@fpt.edu.vn",
+      "password": "$2a$10$raDVv7vN/6GOjjiEqPDTme2lp4RKXuX5EkKfOcqF52415atWFaC0i",
+      "name": "Ngo Van Ngoc",
+      "id": 1
+    },
+    {
+      "email": "ngocnv35@fpt.edu.vn",
+      "password": "$2a$10$XnRWRokldLBV9NfAcrX/..Ui26zGFz0s/L1NhZAzqL7KlBvQLuIJO",
+      "name": "Ngo Van Ngoc",
+      "id": 2
+    }
+  ]
 }

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng ký tài khoản</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+    <div class="bg-white rounded-lg shadow-lg p-8 w-full max-w-md mx-4">
+        <h1 class="text-2xl font-bold text-gray-800 mb-6 text-center">Đăng ký tài khoản</h1>
+        <form id="userform" class="space-y-5">
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Họ tên</label>
+                <input type="text" id="name" placeholder="Tên sản phẩm" class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"/>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                <input type="text" id="email" placeholder="Email" class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"/>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Mật khẩu</label>
+                <input type="password" id="password" placeholder="Mật khẩu" class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"/>
+            </div>
+            <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2.5 rounded-lg transition">Đăng ký tài khoản</button>
+        </form>
+    </div>
+    <script>
+        const userform = document.getElementById("userform")
+        const name = document.getElementById("name")
+        const email = document.getElementById("email")
+        const password = document.getElementById("password")
+        userform.addEventListener("submit",async(e)=>{
+            e.preventDefault() // NGăn trình duyệt chuyển hướng
+            email.nextElementSibling&&email.nextElementSibling.remove() // Xóa thông báo phía sau email
+            password.nextElementSibling&&password.nextElementSibling.remove() // Xóa thông báo phái sau pasword
+            // ĐỊnh dạng email
+            if (!email.value.includes('@')||!email.value.includes(".")){
+                const message = document.createElement("span")
+                message.innerHTML = "Email không đúng định dạng"
+                message.setAttribute("class","text-red-600 text-[10px]")
+                email.parentNode.append(message)
+                // alert("email không đúng định dạng")
+                email.focus() // Đưa con trỏ vào ô email input
+                return;
+            }
+            if (password.value.trim().length<6){
+                // alert("Mật khẩu không để trống và từ 6 kí tự trở lên")
+                const message = document.createElement("span")
+                message.innerHTML = "Mật khẩu không để trống và từ 6 kí tự trở lên"
+                message.setAttribute("class","text-red-600 text-[10px]")
+                password.parentNode.append(message)
+                password.focus()
+                return;
+            }
+            const user = {
+                name: name.value,
+                email: email.value,
+                password: password.value
+            }
+            try {
+                const res=await fetch(`http://localhost:3000/register`,{
+                    method:'POST',
+                    headers: {'Content-type':'application/json'},
+                    body: JSON.stringify(user)
+                })
+                if (!res.ok) throw await res.json()
+                alert("Đăng ký thành công")
+            } catch (error) {
+                alert(error)                
+            }
+        })
+    </script>
+</body>
+</html>
