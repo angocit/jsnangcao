@@ -11,6 +11,7 @@
         <h1 class="text-2xl font-bold text-gray-800 mb-6">Danh sách sản phẩm</h1>
         <a href="product-add.html" class="bg-blue-800 text-white px-3 py-2 rounded mb-5 block max-w-[200px] text-center">Thêm mới sản phẩm</a>
         <div class="bg-white rounded-lg shadow overflow-x-auto">
+            <h1>Bảng 1</h1>
             <table class="w-full text-left">
                 <thead>
                     <tr class="bg-gray-800 text-white">
@@ -21,54 +22,23 @@
                         <th class="px-4 py-3 text-sm font-semibold uppercase text-center">Thao tác</th>
                     </tr>
                 </thead>
-                <tbody></tbody>
+                <tbody id="table1"></tbody>
+            </table>
+            <h1>Bảng 2</h1>
+            <table class="w-full text-left">
+                <thead>
+                    <tr class="bg-gray-800 text-white">
+                        <th class="px-4 py-3 text-sm font-semibold uppercase">STT</th>
+                        <th class="px-4 py-3 text-sm font-semibold uppercase">Tên sản phẩm</th>
+                        <th class="px-4 py-3 text-sm font-semibold uppercase">Ảnh sản phẩm</th>
+                        <th class="px-4 py-3 text-sm font-semibold uppercase">Giá tiền</th>
+                        <th class="px-4 py-3 text-sm font-semibold uppercase text-center">Thao tác</th>
+                    </tr>
+                </thead>
+                <tbody id="table2"></tbody>
             </table>
         </div>
     </div>
-    <script>
-        const tbody = document.querySelector('tbody')
-        const GetProducts = async ()=>{
-            try {
-                const res = await fetch(`http://localhost:3000/products`)
-                if (!res.ok) throw "Lỗi"
-                const data = await res.json()
-                let content = ``
-                data.forEach(({name,image,price,id},index)=>{
-                    content+=`
-                        <tr class="border-b border-gray-200 hover:bg-gray-50 transition">
-                            <td class="px-4 py-3 text-sm text-gray-700">${index+1}</td>
-                            <td class="px-4 py-3 text-sm text-gray-700 font-medium">${name}</td>
-                            <td class="px-4 py-3">
-                                <img src="${image}" alt="${name}" class="w-16 h-16 object-cover rounded border" onerror="this.style.display='none'"/>
-                            </td>
-                            <td class="px-4 py-3 text-sm text-gray-700">${Number(price).toLocaleString()}đ</td>
-                            <td class="px-4 py-3 text-center">
-                                <a href="product-edit.html?id=${id}" class="bg-yellow-400 hover:bg-yellow-500 text-white text-xs font-semibold px-3 py-1.5 rounded transition">Sửa</a>
-                                <button onclick="handleDelete('${id}')" class="bg-red-500 hover:bg-red-600 text-white text-xs font-semibold px-3 py-1.5 rounded transition ml-1">Xóa</button>
-                            </td>
-                        </tr>
-                    `
-                })    
-                tbody.innerHTML = content         
-            } catch (error) {
-                console.log(error);                
-            }
-        }
-        GetProducts()
-        const handleDelete = async(id)=>{
-            if (!confirm("Bạn thực sự muốn xóa?")) return;
-            try {
-                const res = await fetch(`http://localhost:3000/products/${id}`,{
-                    method:'DELETE'
-                })
-                if (!res.ok) throw await res.json()
-                alert("Xóa thành công")
-                GetProducts()
-            } catch (error) {
-                console.log(error);
-                
-            }
-        }
-    </script>
+    <script type="module" src="product.js"></script>
 </body>
 </html>
