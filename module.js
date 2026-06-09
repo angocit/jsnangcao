@@ -1,4 +1,5 @@
-export const GetProducts = async (tbody)=>{
+
+const GetProducts = async (tbody)=>{
             try {
                 const res = await fetch(`http://localhost:3000/products`)
                 if (!res.ok) throw "Lỗi"
@@ -25,7 +26,7 @@ export const GetProducts = async (tbody)=>{
                 console.log(error);                
             }
 }
-export const handleDelete = async(id)=>{
+const handleDelete = async(id)=>{
             if (!confirm("Bạn thực sự muốn xóa?")) return;
             try {
                 const res = await fetch(`http://localhost:3000/products/${id}`,{
@@ -39,3 +40,4 @@ export const handleDelete = async(id)=>{
                 
             }
         }
+export {handleDelete,GetProducts}
