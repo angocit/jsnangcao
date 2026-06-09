@@ -40,4 +40,4 @@ const handleDelete = async(id)=>{
                 
             }
         }
-export {handleDelete,GetProducts}
+export default GetProducts
