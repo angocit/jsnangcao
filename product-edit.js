@@ -1,3 +1,4 @@
+import { DisPlayError } from "./module.js"
 // B1 Lấy id từ url
 const params = new URLSearchParams(location.search)
 const id = params.get("id")
@@ -43,6 +44,18 @@ productform.addEventListener("submit",async(e)=>{
     // if (productstock.value>4){
     //     status = 'active'
     // }
+    // Check validate trước
+        if (productname.value.trim().length<6){
+            // alert("Tên không để trống và >5 kí tự")
+            DisPlayError(productname,"Tên không để trống và > 5 kí tự")        
+            return // Dừng chương trình
+        }
+        if (productsku.value.trim().length==0){
+            // alert("Mã sản phẩm không để trống")
+            DisPlayError(productsku,"Mã sản phẩm không để trống") 
+            productsku.focus() // Đưa con trỏ vào ô input mã sản phẩm
+            return // Dừng chương trình
+        }
     const product = {
         "name": productname.value,
         "price": productprice.value,
