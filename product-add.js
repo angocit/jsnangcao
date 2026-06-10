@@ -1,4 +1,4 @@
-import { DisPlayError } from "./module.js"
+import DisPlayError from "./module.js"
 const productname = document.getElementById("product-name")
 const productsku = document.getElementById("product-sku")
 const productcategory = document.getElementById("product-category")

@@ -1,4 +1,4 @@
-export const DisPlayError = (elm,message)=>{
+const DisPlayError = (elm,message)=>{
      const parent = elm.parentNode
         const span = document.createElement("span")
         // Đặt nội dung cho span
@@ -9,3 +9,4 @@ export const DisPlayError = (elm,message)=>{
         parent.append(span)
         elm.focus() // Đưa con trỏ vào ô input tên sản phẩm
 }
+export default DisPlayError
