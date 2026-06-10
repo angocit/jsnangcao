@@ -26,7 +26,7 @@ const GetAllProduct = async ()=>{
                    <td>${inStock}</td> 
                    <td>${status}</td> 
                    <td>
-                        <button class="bg-blue-500 rounded text-white px-4 py-1">Sửa</button>
+                        <a href="product-edit.html?id=${id}" class="bg-blue-500 rounded text-white px-4 py-1">Sửa</a>
                         <button onclick="handleDelete('${id}')" class="bg-red-500 rounded text-white px-4 py-1">Xóa</button>
                    </td> 
                 </tr>

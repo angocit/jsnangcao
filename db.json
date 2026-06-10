@@ -1,15 +1,15 @@
 {
   "products": [
     {
-      "id": "7",
-      "name": "Apple Watch Series 9 GPS 41mm",
-      "price": 9500000,
-      "inStock": 40,
-      "variant": 3,
+      "name": "Apple Watch Series 9 GPS 41mm Update",
+      "price": "9500000",
+      "inStock": "40",
+      "variant": 1,
       "category": "Điện tử",
       "sku": "APP-W9-41",
       "status": "active",
-      "image": "https://images.unsplash.com/photo-1434493789847-2f02dc6ca35d?w=300&h=300&fit=crop"
+      "image": "https://images.unsplash.com/photo-1434493789847-2f02dc6ca35d?w=300&h=300&fit=crop",
+      "id": "aaaaaaatty7"
     },
     {
       "id": "8",
@@ -43,7 +43,58 @@
       "sku": "APP-IPADM4-256",
       "status": "active",
       "image": "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=300&h=300&fit=crop"
+    },
+    {
+      "id": 1,
+      "name": "222222",
+      "price": 111,
+      "inStock": 1,
+      "variant": 1,
+      "category": "Điện tử",
+      "sku": "2",
+      "status": "low_stock",
+      "image": "dfvdgdfs"
+    },
+    {
+      "name": "Sản pahamr mới",
+      "price": "100000",
+      "inStock": "1",
+      "variant": 1,
+      "category": "Âm thanh",
+      "sku": "00000",
+      "status": "low_stock",
+      "image": "https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb?w=300&h=300&fit=crop",
+      "id": "-PXAShD"
+    },
+    {
+      "name": "dfgdfgdf",
+      "price": "222222",
+      "inStock": "6",
+      "variant": 1,
+      "category": "Thời trang",
+      "sku": "23232",
+      "status": "active",
+      "image": "https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb?w=300&h=300&fit=crop",
+      "id": "myMQmQ7"
+    },
+    {
+      "name": "2222223333 aaa",
+      "price": "22222",
+      "inStock": "0",
+      "variant": 1,
+      "category": "Phụ kiện",
+      "sku": "234243",
+      "status": "out_stock",
+      "image": "https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb?w=300&h=300&fit=crop",
+      "id": "LtjNGe6"
     }
   ],
-  "users": []
+  "users": [
+    {
+      "email": "ngocnv34@fpt.edu.vn",
+      "password": "$2a$10$BXlH0.sDgRim0CbNgxnpq.jlffloTgl4IoIO9tdC0hV352QZL/bYq",
+      "name": "Ngo Van Ngoc",
+      "id": 1
+    }
+  ]
 }
