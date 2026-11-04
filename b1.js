@@ -65,38 +65,48 @@
 // Spread/Rest: Đều sử dụng dấu ...
 // Spread: Sao chép, mở rộng phần tử của mảng hoặc thuộc tính của đối tượng
 // Mảng
-const a = [8,6,10,9,5]
-const b = [...a]
-console.log(a);
-console.log(b);
+// const a = [8,6,10,9,5]
+// const b = [...a]
+// console.log(a);
+// console.log(b);
 
-// Tại sao không b= a 
-const c =a 
-console.log(c);
-// Spread không làm thay đổi mảng gốb
-c.push(10)
-console.log(a)
-console.log(b);
-console.log(c);
-// Mở rộng
-const d = [...a,3,20]
-console.log(d);
-const e = [80,33,20]
-const f = [...a,...e]
-console.log(f);
+// // Tại sao không b= a 
+// const c =a 
+// console.log(c);
+// // Spread không làm thay đổi mảng gốb
+// c.push(10)
+// console.log(a)
+// console.log(b);
+// console.log(c);
+// // Mở rộng
+// const d = [...a,3,20]
+// console.log(d);
+// const e = [80,33,20]
+// const f = [...a,...e]
+// console.log(f);
 
-// Object 
-const person = {
-    name:"Ngọc",
-    age:33,
-    address:"Thái Nguyên"
+// // Object 
+// const person = {
+//     name:"Ngọc",
+//     age:33,
+//     address:"Thái Nguyên"
+// }
+// // Sao chép
+// const person2 = {...person}
+// console.log(person2);
+// // Mở rộng
+// const person3 = {...person,classname:"WD21301"}
+// console.log(person3);
+// // Gán lại giá trị thuộc tính
+// const person4 = {...person,age:40}
+// console.log(person4);
+// REST: Rest parameter
+function res_tinhtong(...a){
+   let tong = 0
+   for (item of a){
+    // tong = tong+item
+    tong +=item
+   }
+   return tong
 }
-// Sao chép
-const person2 = {...person}
-console.log(person2);
-// Mở rộng
-const person3 = {...person,classname:"WD21301"}
-console.log(person3);
-// Gán lại giá trị thuộc tính
-const person4 = {...person,age:40}
-console.log(person4);
+console.log(`Tổng là ${res_tinhtong(6,7,9)}`);
