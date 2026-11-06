@@ -1,11 +1,11 @@
-// Falsy Value
+// Falsy Value: Giá trị khi chuyển về boolean thì nhận giá trị false
 //  - null
 //  - ''
 //  - undefined
 //  - 0
 //  - false
 //  - NaN 
-// truthy
+// truthy: Những giá trị không phải falsy value
 // Biểu thức AND &&
 // Cách thức hoạt động: Duyệt từ trái qua phải, nếu gặp giá trị là truthy thì sẽ bỏ qua, 
 // duyệt phần tử tiếp theo cho đến khi gặp falsy value thì dừng và nhận giá trị falsy value.
@@ -76,7 +76,7 @@ const students = [
 for (sv of students){
     console.log(`
         Họ tên: ${sv.name}
-        Tỉnh: ${sv.address?.provice}
+        Tỉnh: ${sv.address?.provice||"Chưa xác định"}
         `);
     
 }
