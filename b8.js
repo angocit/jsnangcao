@@ -24,6 +24,9 @@ console.log(person1.age);
 person1.tangtuoi()
 console.log(person1.age);
 console.log(perons2);
+// Cho đoạn HTML sau:
+// <ul id="studentList"></ul>
+{/* Viết JavaScript thực hiện các yêu cầu: Tạo class students, khởi tạo danh sách sinh viên sau đó viết phương thức render() để hiển thị danh sách học viên vào ul#studentList. Mỗi học viên được hiển thị thành một thẻ li theo định dạng: “Tên học viên – Điểm: điểm”. Trước khi render, cần xóa nội dung cũ trong danh sách. */}
 class Students{
     constructor(students){
         this.students = students
