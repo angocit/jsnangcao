@@ -111,5 +111,5 @@ todoform.addEventListener("submit",(e)=>{
     // Lấy giá trị từ input
     const todo = document.getElementById("name").value
     // Get key theo todo
-    alert(contentmap.get(todo)??0)
+    alert(`Số lần xuất hiện của từ ${todo} là: ${contentmap.get(todo)??0}`)
 })
