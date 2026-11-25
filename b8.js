@@ -54,3 +54,17 @@ const students = [
 // Tạo đối tượng studentlist
 const studentlist = new Students(students)
 studentlist.render()
+
+// Kế thừa
+class childPerson extends Person{
+    constructor(name,age,address="Không xác định"){
+        super(name,age)
+        this.address = address
+    }
+}
+const p1 = new childPerson("Ngọc",30,"Thái Nguyên")
+console.log(p1);
+p1.tangtuoi()
+console.log(p1);
+const p2 = new childPerson("Ngọc 10",40)
+console.log(p2);
