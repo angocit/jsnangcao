@@ -1,0 +1,29 @@
+{
+  "products": [
+    {
+      "name": "abc",
+      "image": "dsafadsfsadfadsf",
+      "price": "10000",
+      "id": 1
+    },
+    {
+      "name": "sadfasdfs",
+      "image": "",
+      "price": "",
+      "id": 2
+    },
+    {
+      "name": "sadfadsf",
+      "image": "",
+      "price": "",
+      "id": 3
+    },
+    {
+      "name": "sdafsadfasdf",
+      "image": "",
+      "price": "23423423",
+      "id": 4
+    }
+  ],
+  "users": []
+}
